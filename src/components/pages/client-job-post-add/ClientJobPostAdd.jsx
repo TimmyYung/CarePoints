@@ -212,7 +212,7 @@ export default function ClientJobPostAdd() {
                             placeholder="Enter any extra information"
                             variant="outlined"
                             color={'primary'}
-                            sx={{ ariaLabel: 'Notes', backgroundColor:"white" }}
+                            sx={{ ariaLabel: 'Notes', backgroundColor:"white", borderRadius: 2 }}
                             value={notes}
                             onChange={(e) => setNotes(e.target.value)}
                         />
@@ -220,7 +220,7 @@ export default function ClientJobPostAdd() {
                     <FormControl>
                         <FormLabel htmlFor="postCode">Where Service is Needed (Postal Code)</FormLabel>
                         <TextField
-                        style={{ backgroundColor:"white" }}
+                            sx={{ backgroundColor:"white", borderRadius: 2  }}
                             error={postError}
                             helperText={postErrorMessage}
                             id="postCode"
@@ -237,11 +237,10 @@ export default function ClientJobPostAdd() {
                             aria-label="Postal Code"
                         />
                     </FormControl>
-                    <Box sx={{  display: 'flex', flexDirection: 'row', gap: 2, paddingBottom: 5 }}>
+                    <Box sx={{  display: 'flex', flexDirection: 'row', gap: 2, paddingBottom: 5, borderRadius: 2  }}>
                         <FormControl sx={{ flex: 1 }}>
                             <FormLabel htmlFor="volunteerNo">Number of Volunteers Needed</FormLabel>
                             <TextField
-                            style={{ backgroundColor:"white" }}
                                 id="volunteerNo"
                                 error={volunteerNoError}
                                 helperText={volunteerNoErrorMessage}
@@ -251,7 +250,7 @@ export default function ClientJobPostAdd() {
                                 required
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{ ariaLabel: 'Number of Volunteers Needed', width: '100%' }}
+                                sx={{ ariaLabel: 'Number of Volunteers Needed', width: '100%', backgroundColor:"white", borderRadius: 2 }}
                                 value={volunteerNo}
                                 onChange={(e) => setVolunteerNo(e.target.value)}
                             />
@@ -259,7 +258,6 @@ export default function ClientJobPostAdd() {
                         <FormControl sx={{ flex: 1 }}>
                             <FormLabel htmlFor="serHour">Hours of Service Needed</FormLabel>
                             <TextField
-                            style={{ backgroundColor:"white" }}
                                 id="serHour"
                                 error={serHourError}
                                 helperText={serHourErrorMessage}
@@ -269,7 +267,7 @@ export default function ClientJobPostAdd() {
                                 required
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{ ariaLabel: 'Hours of Service Needed', width: '100%' }}
+                                sx={{ ariaLabel: 'Hours of Service Needed', width: '100%', backgroundColor:"white", borderRadius: 2  }}
                                 value={serHour}
                                 onChange={(e) => setSerHour(e.target.value)}
                             />
@@ -286,7 +284,7 @@ export default function ClientJobPostAdd() {
                                 required
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{ ariaLabel: 'Points', width: '100%' }}
+                                sx={{ ariaLabel: 'Points', width: '100%', backgroundColor:"white", borderRadius: 2 }}
                                 value={points}
                                 onChange={(e) => setPoints(e.target.value)}
                             />

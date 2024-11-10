@@ -74,7 +74,7 @@ export default function ClientLogin () {
                         backgroundImage: `url(${Image.src})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        opacity: 0.7,  
+                        opacity: 0.85,  
                         position: 'absolute',
                         top: 0,
                         left: 0,
@@ -83,20 +83,20 @@ export default function ClientLogin () {
                         zIndex: -1,  
                     }}
                 />
-            <Box style={{ position: 'relative', zIndex: 1, padding: '20px' }}>
-                <Typography
-                    component="h1"
-                    variant="h4"
-                    sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel", paddingLeft: 5, paddingTop: 10, paddingBottom: 2 }}
-                >
-                    Login
-                </Typography>
+            <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', position: 'relative', zIndex: 1,}}>
                 <Box
                     component="form"
                     onSubmit={handleLogin}
                     noValidate
                     sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
                 >
+                    <Typography
+                        component="h1"
+                        variant="h4"
+                        sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel",  paddingTop: 10, paddingBottom: 2, color: 'white' }}
+                    >
+                        Login
+                    </Typography>
                     <FormControl>
                         <FormLabel htmlFor="email">Email</FormLabel>
                         <TextField
@@ -141,7 +141,7 @@ export default function ClientLogin () {
                         component="button"
                         type="button"
                         variant="body2"
-                        sx={{ alignSelf: 'baseline', fontFamily:"pixel" }}
+                        sx={{ alignSelf: 'baseline', fontFamily:"pixel", color: 'white' }}
                         >
                         <Linking href="/client/sign-up">Don't have an account?</Linking>
                     </Link>
