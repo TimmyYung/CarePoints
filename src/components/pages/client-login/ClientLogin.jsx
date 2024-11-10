@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
+import { useRouter } from 'next/navigation';
 import Linking from 'next/link';
 import clientData from '/src/app/(routes)/timtest/data.json';
 
 export default function ClientLogin (){
+    const router = useRouter();
     const [emailError, setEmailError] = useState(false);
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
     const [passwordError, setPasswordError] = useState(false);
@@ -25,7 +27,7 @@ export default function ClientLogin (){
         if (client) {
           if (client.password === password) {
             setErrorMessage(''); 
-            alert(`Welcome ${client.client_name}!`);  // Successful login
+            router.push('/client/job-post');  // Successful login
           } else {
             setErrorMessage('Incorrect password. Please try again.');
           }

@@ -67,28 +67,28 @@
   },
   "Job_page": {
     "1": {
-      "Categories": [
+      "categories": [
         "companionship",
         "specialized_care"
       ],
-      "Description": "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.",
-      "Volunteers_Needed": 5,
+      "description": "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.",
+      "volunteers_needed": 5,
       "postal_code": "L2J 2J2",
-      "Points_per_job": 11,
-      "Hours_Expected": 3,
-      "Client_email": "client1@example.com"
+      "points_per_job": 11,
+      "hours_expected": 3,
+      "client_email": "client1@example.com"
     },
     "2": {
-      "Categories": [
+      "categories": [
         "transportation",
         "physical_therapy"
       ],
-      "Description": "I need to be dressed.",
-      "Volunteers_Needed": 9,
+      "description": "I need to be dressed.",
+      "volunteers_needed": 9,
       "postal_code": "H3H 3H3",
-      "Points_per_job": 44,
-      "Hours_Expected": 8,
-      "Client_email": "client1@example.com"
+      "points_per_job": 44,
+      "hours_expected": 8,
+      "client_email": "client1@example.com"
     },
     "3": {
       "description": "45",

@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import Linking from 'next/link';
 
 export default function ClientSignUp (){
+    const router = useRouter();
     const [emailError, setEmailError] = useState(false);
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
     const [phoneError, setPhoneError] = useState(false);
@@ -68,7 +70,7 @@ export default function ClientSignUp (){
             setNewClientPassword('');
             setNewClientDOB('');
             setNewEmergencyContactPhone('');
-      
+            router.push('/client/job-post');
           } catch (error) {
             console.error('Error adding client:', error);
           }

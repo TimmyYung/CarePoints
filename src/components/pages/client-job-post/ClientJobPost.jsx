@@ -80,11 +80,11 @@ export default function ClientJobPost(){
                         {Object.keys(tempdata.Job_page).map((jobId) => {
                              if (tempdata.Job_page[jobId].Client_email !== "") {
                                 return (
-                                  <Card key={jobId} variant="outlined" sx={{ gap: 3 }}>
+                                  <Card key={jobId} variant="outlined" sx={{ gap: 3, marginBottom: 2 }}>
                                     <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
                                       <Typography variant="h5" component="div" sx={{ paddingBottom: 0.5 }}>
-                                        Categories:{' '}
-                                        {tempdata.Job_page[jobId].Categories.map((value) => (
+                                        <Box fontWeight={'bold'} display="inline">Categories: </Box>
+                                        {tempdata.Job_page[jobId].categories && tempdata.Job_page[jobId].categories.map((value) => (
                                           <Chip
                                             key={value}
                                             sx={{ marginRight: 1 }}
@@ -94,7 +94,7 @@ export default function ClientJobPost(){
                                       </Typography>
                                       <Typography variant="body">
                                         <Box fontWeight={'bold'} display="inline">Description: </Box>
-                                        {tempdata.Job_page[jobId].Description}
+                                        {tempdata.Job_page[jobId].description}
                                       </Typography>
                                       <Typography variant="body">
                                         <Box fontWeight={'bold'} display="inline">Where Service is Needed (Postal Code): </Box>
@@ -102,15 +102,15 @@ export default function ClientJobPost(){
                                       </Typography>
                                       <Typography variant="body">
                                         <Box fontWeight={'bold'} display="inline">Number of Volunteers Needed: </Box>
-                                        {tempdata.Job_page[jobId].Volunteers_Needed}
+                                        {tempdata.Job_page[jobId].volunteers_needed}
                                       </Typography>
                                       <Typography variant="body">
                                         <Box fontWeight={'bold'} display="inline">Hours of Service Needed: </Box>
-                                        {tempdata.Job_page[jobId].Hours_Expected}
+                                        {tempdata.Job_page[jobId].hours_expected}
                                       </Typography>
                                       <Typography variant="body">
                                         <Box fontWeight={'bold'} display="inline">Points that Caretaker Receives: </Box>
-                                        {tempdata.Job_page[jobId].Points_per_job}
+                                        {tempdata.Job_page[jobId].points_per_job}
                                       </Typography>
                                     </CardContent>
                                   </Card>
