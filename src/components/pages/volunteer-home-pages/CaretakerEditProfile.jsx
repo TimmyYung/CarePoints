@@ -1,6 +1,6 @@
 'use client'
-import CaretakerNavbar from "../../caretaker-shared-components/CaretakerNavbar"
-import CaretakerSignUp from "@/components/caretaker-shared-components/CaretakerSignUp"
+import CaretakerNavbar from "../../volunteer-shared-components/CaretakerNavbar"
+import CaretakerSignUp from "@/components/volunteer-shared-components/CaretakerSignUp"
 
 const CaretakerEditProfile = () => {
     return (
