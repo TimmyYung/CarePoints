@@ -1,3 +1,4 @@
+import { TextField, Button } from '@mui/material'; 
 const { useState } = require("react")
 
 const ApplicationFilters = ({fullData, setDisplayData}) => {
@@ -13,6 +14,7 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
         {category:"transportation", selected:false},
         {category:"nutritional_support", selected:false}
     ]);
+    const [currPostCode, setCurrPostCode] = useState("");
 
     const handleFilterClick = (i) => {
         var newFilters = filters.slice();
@@ -61,12 +63,44 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
 
     }
 
+    const handlePostFilter = async () =>{
+
+        if (!currPostCode || !/^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/.test(currPostCode)) {
+            alert("Please enter a valid postal code.");
+            return;
+        }
+        
+        const token = "js-OjAru97T0Pa0oLafLWpPiooY7WGIAas6wvxHCLvIrg9pisCS7BpeCaFPJ14Oc8lE";
+        const nearbyJobs = [];
+
+        for (let i = 0; i < fullData.length; i++) {
+            const toPost = fullData[i].postal.replace(" ", '');
+            const fromPost = currPostCode.replace(" ", '');
+            console.log(toPost);
+            console.log(fromPost);
+
+            try {
+                const url = `https://www.zipcodeapi.com/rest/v2/CA/${token}/distance.json/${toPost}/${fromPost}/km`;
+
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Error: ${response.status}`, {mode: 'no-cors'});
+
+                const data = await response.json();
+                if (data.distance < 10) nearbyJobs.push(fullData[i]);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        setDisplayData(nearbyJobs.length ? nearbyJobs : []);
+    } 
+
     return (
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex", flexDirection: "row", alignItems: "center", gap: "10px"}}>
             {/* <button style={{fontSize:"20px", padding:"5px", borderRadius:"5px", border:"none", margin:"5px", cursor:"pointer"}} onClick={() =>{if(defaultSort == "Closest") setDefaultSort("Points"); else setDefaultSort("Closest")}}>Sort by: {defaultSort}</button> */}
             <div style={{position:"relative"}}>
                 <div style={{fontSize:"20px", padding:"5px", margin:"5px", cursor:"pointer"}} onClick={() => setFilterOpen(!filterOpen)}>Categories</div>
-                <div style={{position:"absolute", zIndex:"1000", background:"white", padding:"10px", fontSize:"20px", width:"350px"}}>
+                <div style={{position:"absolute", zIndex:"1000", background:"white", padding:"5px", fontSize:"20px", width:"350px"}}>
                     {filterOpen && filters.map((filter, i) => 
                         <div onClick={() => handleFilterClick(i)} key={i} style={{display:"flex", justifyContent:"space-between"}}>
                             <div>{filter.category}</div>
@@ -77,6 +111,21 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
                     )}
                 </div>
             </div>
+            <TextField
+                id="postCode"
+                type="text"
+                name="postCode"
+                label= "Postal Code"
+                placeholder="X1X 1X1"
+                autoComplete="postal-code"
+                variant="outlined"
+                color="primary"
+                aria-label="Postal Code"
+                value={currPostCode}
+                onChange={(e) => {setCurrPostCode(e.target.value)}}
+                size="small"
+            />
+            <Button variant='contained' onClick={handlePostFilter}>Search by Closeness</Button>
         </div>
     )
 }
