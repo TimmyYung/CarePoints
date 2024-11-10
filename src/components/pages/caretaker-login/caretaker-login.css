@@ -1,0 +1,17 @@
+#caretaker-login-section {
+    display: flex;
+    min-height: 100%;
+}
+#caretaker-login-section > div {
+    padding: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#block {
+    background-color: gray;
+    margin-left: 20px;
+}
+#caretaker-login {
+    height: 100%;
+}

@@ -1,7 +1,6 @@
 
 // import { Metadata } from "next";
-
-import HomePage from "@/components/pages/home/HomePage";
+import CaretakerLoginSection from "@/components/pages/caretaker-login/CaretakerLoginSection";
 
 // export const metadata: Metadata = {
 //   title: "Achievements",
@@ -10,9 +9,7 @@ import HomePage from "@/components/pages/home/HomePage";
 
 const homePage = () => {
     return (
-      <>
-        <HomePage/>
-      </>
+        <CaretakerLoginSection/>
     );
   };
 

@@ -1,0 +1,13 @@
+#caretaker-sign-up {
+    padding: 30px;
+}
+
+#caretaker-sign-up > div {
+    display: flex;
+}
+#caretaker-sign-up > div > div {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
