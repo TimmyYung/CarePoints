@@ -66,7 +66,7 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
             {/* <button style={{fontSize:"20px", padding:"5px", borderRadius:"5px", border:"none", margin:"5px", cursor:"pointer"}} onClick={() =>{if(defaultSort == "Closest") setDefaultSort("Points"); else setDefaultSort("Closest")}}>Sort by: {defaultSort}</button> */}
             <div style={{position:"relative"}}>
                 <div style={{fontSize:"20px", padding:"5px", margin:"5px", cursor:"pointer"}} onClick={() => setFilterOpen(!filterOpen)}>Categories</div>
-                <div style={{position:"absolute", zIndex:"1000", background:"white", padding:"5px", fontSize:"20px", width:"200px"}}>
+                <div style={{position:"absolute", zIndex:"1000", background:"white", padding:"10px", fontSize:"20px", width:"350px"}}>
                     {filterOpen && filters.map((filter, i) => 
                         <div onClick={() => handleFilterClick(i)} key={i} style={{display:"flex", justifyContent:"space-between"}}>
                             <div>{filter.category}</div>

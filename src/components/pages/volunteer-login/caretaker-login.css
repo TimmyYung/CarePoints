@@ -1,17 +1,20 @@
+@font-face {
+    font-family: "pixel";
+    src: url("../../FFFFORWA.TTF");
+}
 #caretaker-login-section {
+    font-family: "pixel";
     display: flex;
     min-height: 100%;
 }
 #caretaker-login-section > div {
+    font-family: "pixel";
     padding: 50px;
     width: 50%;
     display: flex;
     flex-direction: column;
 }
-#block {
-    background-color: gray;
-    margin-left: 20px;
-}
 #caretaker-login {
     height: 100%;
+    font-family: "pixel";
 }

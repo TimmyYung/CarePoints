@@ -1,5 +1,7 @@
 'use client';
 
+import "../../font.css";
+
 import React, { useState } from 'react';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import { useRouter } from 'next/navigation';
@@ -67,7 +69,7 @@ export default function ClientLogin (){
             <Typography
                 component="h1"
                 variant="h4"
-                sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', paddingLeft: 5, paddingTop: 10, paddingBottom: 2 }}
+                sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel", paddingLeft: 5, paddingTop: 10, paddingBottom: 2 }}
             >
                 Login
             </Typography>
@@ -120,11 +122,11 @@ export default function ClientLogin (){
                     component="button"
                     type="button"
                     variant="body2"
-                    sx={{ alignSelf: 'baseline' }}
+                    sx={{ alignSelf: 'baseline', fontFamily:"pixel" }}
                     >
                     <Linking href="/client/sign-up">Don't have an account?</Linking>
                 </Link>
-                <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
+                <Button type="submit" fullWidth variant="contained" onClick={validateInputs} style={{fontFamily:"pixel"}}>
                     Login
                 </Button>
             </Box>

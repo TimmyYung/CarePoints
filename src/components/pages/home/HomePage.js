@@ -3,6 +3,7 @@
 import { useState } from "react";
 import "./home.css";
 import Button from '@mui/material/Button';
+import "../../font.css"
 
 const HomePage = () => {
     const [selection, setSelection] = useState(0);
@@ -42,11 +43,12 @@ const HomePage = () => {
                 <br/>
                 <hr/>
                 <br/>
-                {selection == 1 && <h2>I am signing up as a...</h2>}
-                {selection == 2 && <h2>I am logging in as a...</h2>}
+                {selection == 1 && <h2 className="font">I am signing up as a...</h2>}
+                {selection == 2 && <h2 className="font">I am logging in as a...</h2>}
+                <br/>
                 <div>
-                    <Button onClick={handleCaretakerClick}>Volunteer</Button>
-                    <Button onClick={handleClientClick}>Client</Button>
+                    <Button onClick={handleCaretakerClick} className="font" variant="contained" style={{marginRight:"20px", borderRadius:"0"}}>Volunteer</Button>
+                    <Button onClick={handleClientClick} className="font" variant="contained" style={{borderRadius:"0"}}>Client</Button>
                 </div>
             </div>}
         </div>

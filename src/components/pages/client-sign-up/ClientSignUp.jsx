@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import Linking from 'next/link';
 
+import "../../font.css"
+
 export default function ClientSignUp (){
     const router = useRouter();
     const [emailError, setEmailError] = useState(false);
@@ -137,7 +139,7 @@ export default function ClientSignUp (){
             <Typography
                 component="h1"
                 variant="h4"
-                sx={{ width: '100%', paddingLeft: 6, paddingTop: 3, paddingBottom: 2 }}
+                sx={{ width: '100%', paddingLeft: 6, paddingTop: 3, paddingBottom: 2 , fontFamily:"pixel"}}
             >
                 Sign up
             </Typography>
@@ -253,11 +255,11 @@ export default function ClientSignUp (){
                     component="button"
                     type="button"
                     variant="body2"
-                    sx={{ alignSelf: 'baseline' }}
+                    sx={{ alignSelf: 'baseline', fontFamily:"pixel" }}
                     >
                      <Linking href="/client/login">Already have an account?</Linking>
                 </Link>
-                <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
+                <Button style={{fontFamily:"pixel"}} type="submit" fullWidth variant="contained" onClick={validateInputs}>
                     Sign up
                 </Button>
             </Box>

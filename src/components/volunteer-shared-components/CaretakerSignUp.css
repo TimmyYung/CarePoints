@@ -1,8 +1,13 @@
+@font-face {
+    font-family: "pixel";
+    src: url("../FFFFORWA.TTF");
+}
 #caretaker-sign-up {
     padding: 30px;
 }
 
 #caretaker-sign-up > div {
+    font-family: "pixel";
     display: flex;
 }
 #caretaker-sign-up > div > div {

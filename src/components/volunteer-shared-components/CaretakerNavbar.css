@@ -1,8 +1,14 @@
+@font-face {
+    font-family: "pixel";
+    src: url("../FFFFORWA.TTF");
+}
 .caretaker-navbar {
+    font-family: "pixel";
     width: 100%;
     display: flex;
 }
 .caretaker-navbar > button {
+    font-family: "pixel";
     width: 100%;
     border: none;
     font-size: 20px;

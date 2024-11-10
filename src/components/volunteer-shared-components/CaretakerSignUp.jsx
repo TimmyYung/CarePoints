@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import "./CaretakerSignUp.css";
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
+import "../font.css"
 
 const CaretakerSignUp = ({signup}) => {
     const [nameError, setNameError] = useState(false);
@@ -266,13 +267,18 @@ const CaretakerSignUp = ({signup}) => {
                         <input required id="caretaker-id" type="file" accept="image/*" />
                         <br/>
                     </>}
+                    {signup && <>
+                        <label htmlFor="caretaker-license">Photo of medical license:</label>
+                        <input required id="caretaker-id" type="file" accept="image/*" />
+                        <br/>
+                    </>}
                     <TextField error={servicesError} required label="Services:" id="caretaker-services" onChange={(e) => {if(e.target.value != "") setServicesError(false)}}/>
                     <br/>
                     <TextField error={availabilityError} required label="Availability:" id="caretaker-avail" onChange={(e) => {if(e.target.value != "") setAvailabilityError(false)}}/>
                 </div></>
             </div>
-            {signup && <Button onClick={handleAddVolunteer}>Sign Up</Button>}
-            {!signup && <Button onClick={handleAddVolunteer}>Save profile</Button>}
+            {signup && <Button className="font" onClick={handleAddVolunteer}>Sign Up</Button>}
+            {!signup && <Button className="font" onClick={handleAddVolunteer}>Save profile</Button>}
 
         </div>
     )
