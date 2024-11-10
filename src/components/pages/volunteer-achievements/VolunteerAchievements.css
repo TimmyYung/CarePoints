@@ -1,7 +1,8 @@
 #volunteer-achievements {
-    color: blue;
+    background-color: rgb(156, 156, 246);
+    height: 100%;
+    color: white;
     text-align: center;
-    margin: 100px;
 }
 #volunteer-achievements > h1 {
     font-size: 75px;

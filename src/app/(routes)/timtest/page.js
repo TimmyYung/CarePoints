@@ -40,7 +40,8 @@ const TimTest = () => {
         console.error("Error fetching data:", error);
         setError("Error fetching data");
       });
-  });
+  }, []); // Add an empty dependency array
+
   // Function to handle form submission and send data to Node.js backend
   const handleAddClient = async (e) => {
     e.preventDefault();

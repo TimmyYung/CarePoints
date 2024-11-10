@@ -57,14 +57,13 @@ export default function ClientJobPost(){
     return (
     <div 
     style={{
-      backgroundImage: "url('riverbg.png')",
-    backgroundRepeat:"no-repeat",
-    backgroundSize: "cover"
+      backgroundColor:"#AFCFF2",
+      height:"100%"
     }}
     >
         <Box  sx={{  display: 'flex', flexDirection: 'column', width: '100%', padding: 5, paddingTop: 3}}>
             <Box sx={{  display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                <IconButton aria-label="profile" color="primary" href="/client" size="large">
+                <IconButton aria-label="profile" color="primary"  size="large">
                     <PersonIcon fontSize="inherit"/>
                 </IconButton>
             </Box>
@@ -77,16 +76,19 @@ export default function ClientJobPost(){
                     >
                         Your Posted Jobs
                     </Typography>
+                    <Button variant='contained' color="primary" href="/client/job-post-add" sx={{ marginTop:"50px", borderRadius:"2", padding:" 10px", width:"15%"}}>
+                        Add Job Request
+                    </Button>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', maxHeight: 500, overflow: 'auto', padding: 5, paddingTop: 0 }}>
                     <List >
                         {Object.keys(tempdata.Job_page).map((jobId) => {
                              if (tempdata.Job_page[jobId].Client_email !== "") {
                                 return (
-                                  <Card key={jobId} variant="outlined" sx={{ gap: 3, marginBottom: 2 }}>
+                                  <Card key={jobId} variant="outlined" sx={{ gap: 3, marginBottom: 2, background: '#fcfbf6' }}>
                                     <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
                                       <Typography variant="h5" component="div" sx={{ paddingBottom: 0.5 }}>
-                                        <Box fontWeight={'normal'} fontFamily={'pixel'} display="inline">Categories: </Box>
+                                        <Box fontWeight={'normal'} display="inline">Categories: </Box>
                                         {tempdata.Job_page[jobId].categories && tempdata.Job_page[jobId].categories.map((value) => (
                                           <Chip
                                             key={value}
@@ -124,9 +126,6 @@ export default function ClientJobPost(){
                     </List>
                 </Box>
                 <br/><br/>
-                <Button variant='contained' color="primary" href="/client/job-post-add" sx={{ marginTop:"50px", fontFamily:"pixel", borderRadius:"0", padding:" 10px", width:"10%"}}>
-                        Add Job Request
-                    </Button>
             </Box>
         </Box>
     </div>

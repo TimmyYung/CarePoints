@@ -150,23 +150,25 @@ export default function ClientJobPostAdd() {
     };
 
     return (
-        <div>
+        <div style={{
+            backgroundColor:"#AFCFF2", height:"100%"
+          }}>
             <Box sx={{  display: 'flex', flexDirection: 'column', padding: 5, paddingTop: 3}}>
                 <Box sx={{  display: 'flex', flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center'}}>
                     <IconButton aria-label="home" color="primary" href="/client/job-post" size="large">
                         <HomeIcon fontSize="inherit"/>
                     </IconButton>
-                    <IconButton aria-label="profile" color="primary" href="/client" size="large">
+                    <IconButton aria-label="profile" color="primary"  size="large">
                         <PersonIcon fontSize="inherit"/>
                     </IconButton>
                 </Box>
                 <Typography
                     component="h1"
                     variant="h4"
-                    sx={{ paddingLeft: 6, paddingTop: 3, paddingBottom: 2 }}
+                    sx={{ paddingLeft: 6, paddingTop: 3, paddingBottom: 2, fontFamily:"pixel" }}
                 >
                     Add Your Job Request
-                </Typography>
+                </Typography><br/>
                 <Box
                     component="form"
                     onSubmit={handleAddJob}
@@ -176,6 +178,7 @@ export default function ClientJobPostAdd() {
                     <FormControl error={categoryError}>
                         <FormLabel htmlFor="category">Category</FormLabel>
                         <Select
+                        style={{ backgroundColor:"white" }}
                             id="category"
                             multiple
                             required
@@ -209,7 +212,7 @@ export default function ClientJobPostAdd() {
                             placeholder="Enter any extra information"
                             variant="outlined"
                             color={'primary'}
-                            sx={{ ariaLabel: 'Notes' }}
+                            sx={{ ariaLabel: 'Notes', backgroundColor:"white", borderRadius: 2 }}
                             value={notes}
                             onChange={(e) => setNotes(e.target.value)}
                         />
@@ -217,6 +220,7 @@ export default function ClientJobPostAdd() {
                     <FormControl>
                         <FormLabel htmlFor="postCode">Where Service is Needed (Postal Code)</FormLabel>
                         <TextField
+                            sx={{ backgroundColor:"white", borderRadius: 2  }}
                             error={postError}
                             helperText={postErrorMessage}
                             id="postCode"
@@ -233,7 +237,7 @@ export default function ClientJobPostAdd() {
                             aria-label="Postal Code"
                         />
                     </FormControl>
-                    <Box sx={{  display: 'flex', flexDirection: 'row', gap: 2, paddingBottom: 5 }}>
+                    <Box sx={{  display: 'flex', flexDirection: 'row', gap: 2, paddingBottom: 5, borderRadius: 2  }}>
                         <FormControl sx={{ flex: 1 }}>
                             <FormLabel htmlFor="volunteerNo">Number of Volunteers Needed</FormLabel>
                             <TextField
@@ -246,7 +250,7 @@ export default function ClientJobPostAdd() {
                                 required
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{ ariaLabel: 'Number of Volunteers Needed', width: '100%' }}
+                                sx={{ ariaLabel: 'Number of Volunteers Needed', width: '100%', backgroundColor:"white", borderRadius: 2 }}
                                 value={volunteerNo}
                                 onChange={(e) => setVolunteerNo(e.target.value)}
                             />
@@ -263,7 +267,7 @@ export default function ClientJobPostAdd() {
                                 required
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{ ariaLabel: 'Hours of Service Needed', width: '100%' }}
+                                sx={{ ariaLabel: 'Hours of Service Needed', width: '100%', backgroundColor:"white", borderRadius: 2  }}
                                 value={serHour}
                                 onChange={(e) => setSerHour(e.target.value)}
                             />
@@ -280,7 +284,7 @@ export default function ClientJobPostAdd() {
                                 required
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{ ariaLabel: 'Points', width: '100%' }}
+                                sx={{ ariaLabel: 'Points', width: '100%', backgroundColor:"white", borderRadius: 2 }}
                                 value={points}
                                 onChange={(e) => setPoints(e.target.value)}
                             />

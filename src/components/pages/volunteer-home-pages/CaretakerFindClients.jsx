@@ -15,7 +15,7 @@ const CaretakerFindClients = () => {
     const [displayData, setDisplayData] = useState(tempData);
 
     return (
-        <>
+        <div style={{backgroundColor:"#AFCFF2", height:"100%"}}>
             <CaretakerNavbar currentSelected={1}/>
             <ApplicationFilters fullData={tempData} setDisplayData={setDisplayData}/>
             <div style={{display:"flex", flexWrap:"wrap"}}>
@@ -25,7 +25,7 @@ const CaretakerFindClients = () => {
                     )
                 })}
             </div>
-        </>
+        </div>
     )
 }
 export default CaretakerFindClients;

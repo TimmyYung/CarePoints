@@ -9,7 +9,7 @@ const CaretakerApps = ({data}) => {
             </div>
             <p>Postal Code: {data.postal}</p><br/>
 
-            <div className="volunteer-app-categories">Categories:{data.categories.map((cat, i) => {
+            <div className="volunteer-app-categories" style={{fontWeight:"thin"}}>Categories:{data.categories.map((cat, i) => {
                 return (<button key={i} disabled className="volunteer-find-client-button">{cat}</button>)
             })}</div>
             <br/>
