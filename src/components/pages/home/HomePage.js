@@ -12,6 +12,12 @@ const HomePage = () => {
         else
             window.location = "../volunteer/login";
     }
+    const handleClientClick = () => {
+        if(selection == "1")
+            window.location = "../client/sign-up";
+        else
+            window.location = "../client/login";
+    }
     return (
         <div id="home-page">
             <h1 id="home-header">Welcome to [blank]!</h1>
@@ -37,8 +43,8 @@ const HomePage = () => {
                 {selection == 1 && <h2>I am signing up as a...</h2>}
                 {selection == 2 && <h2>I am logging in as a...</h2>}
                 <div>
-                    <Button onClick={handleCaretakerClick}>Caretaker</Button>
-                    <Button>Patient</Button>
+                    <Button onClick={handleCaretakerClick}>Volunteer</Button>
+                    <Button onClick={handleClientClick}>Client</Button>
                 </div>
             </div>}
         </div>

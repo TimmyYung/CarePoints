@@ -15,6 +15,7 @@ const dataFilePath = path.join(
 );
 
 function appendClientData(newClientData) {
+<<<<<<< HEAD
   try {
     const fileData = readFileSync(dataFilePath, "utf8");
     const jsonData = JSON.parse(fileData);
@@ -24,13 +25,34 @@ function appendClientData(newClientData) {
       password: newClientData.password,
       client_email: newClientData.client_email,
       client_phone_number: newClientData.client_phone_number,
-      DOB: newClientData.DOB, // add DOB field
-      Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone, // add Emergency_Contact_Phone field
+      DOB: newClientData.DOB, 
+      Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone, 
     };
     writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
     console.log("It appended!");
   } catch (error) {
     console.log("ERROR APPENDING PLZ HELP", error);
+=======
+    try {
+      const fileData = readFileSync(dataFilePath, "utf8");
+      const jsonData = JSON.parse(fileData);
+  
+      const newClientId = Object.keys(jsonData.client).length + 1;
+      jsonData.client[newClientId] = {
+        client_name: newClientData.client_name,
+        password: newClientData.password,
+        client_email: newClientData.client_email,
+        client_phone_number: newClientData.client_phone_number,
+        DOB: newClientData.DOB,
+        Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone 
+      };
+  
+      writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
+      console.log("It appended!");
+    } catch (error) {
+      console.log("ERROR APPENDING PLZ HELP", error);
+    }
+>>>>>>> 38d127ab62bea12bb99a330845bc79c78e154202
   }
 }
 

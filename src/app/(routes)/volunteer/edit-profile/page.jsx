@@ -1,7 +1,7 @@
 
 // import { Metadata } from "next";
 
-import CaretakerEditProfile from "@/components/pages/caretaker-home-pages/CaretakerEditProfile";
+import CaretakerEditProfile from "@/components/pages/volunteer-home-pages/CaretakerEditProfile";
 
 // export const metadata: Metadata = {
 //   title: "Achievements",

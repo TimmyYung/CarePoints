@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import Linking from 'next/link';
+import clientData from '/src/app/(routes)/timtest/data.json';
 
 export default function ClientLogin (){
     const [emailError, setEmailError] = useState(false);
@@ -10,17 +12,30 @@ export default function ClientLogin (){
     const [passwordError, setPasswordError] = useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (emailError || passwordError) {
-            return;
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const router = useRouter();
+    
+        const client = Object.values(clientData.client).find(
+          (client) => client.client_email === email
+        );
+    
+        if (client) {
+          if (client.password === password) {
+            setErrorMessage(''); 
+            router.push('/client/job-post');
+            alert(`Welcome ${client.client_name}!`);  // Successful login
+          } else {
+            setErrorMessage('Incorrect password. Please try again.');
+          }
+        } else {
+          setErrorMessage('Email not found. Please try again.');
         }
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+      };
 
     const validateInputs = () => {
         const email = document.getElementById('email');
@@ -59,7 +74,7 @@ export default function ClientLogin (){
             </Typography>
             <Box
                 component="form"
-                onSubmit={handleSubmit}
+                onSubmit={handleLogin}
                 noValidate
                 sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
             >
@@ -79,6 +94,8 @@ export default function ClientLogin (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Email' }}
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
                     />
                 </FormControl>
                 <FormControl>
@@ -96,6 +113,8 @@ export default function ClientLogin (){
                         fullWidth
                         variant="outlined"
                         color={'primary'}
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
                     />
                 </FormControl>
                 <Link
@@ -104,7 +123,7 @@ export default function ClientLogin (){
                     variant="body2"
                     sx={{ alignSelf: 'baseline' }}
                     >
-                    <Linking href="/patient-sign-up">Don't have an account?</Linking>
+                    <Linking href="/client/sign-up">Don't have an account?</Linking>
                 </Link>
                 <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
                     Sign up
