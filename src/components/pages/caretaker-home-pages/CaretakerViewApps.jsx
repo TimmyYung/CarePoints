@@ -1,21 +1,41 @@
+'use client'
+import { useState } from "react";
 import CaretakerApps from "./VolunteerApps"
 
 const { default: CaretakerNavbar } = require("../../caretaker-shared-components/CaretakerNavbar")
 
 const CaretakerViewApps = () => {
-    const tempData = [
-        {patientName:"mary", patientNeed:"help with cooking", numVolunteers:5, points:5, hours:"5 hours", notes:"N/A", status:"pending"},
-        {patientName:"mary", patientNeed:"help with cooking", numVolunteers:5, points:5, hours:"5 hours", notes:"N/A", status:"accepted"},
-        {patientName:"mary", patientNeed:"help with cooking", numVolunteers:5, points:5, hours:"5 hours", notes:"N/A", status:"rejected"}
+    const tempCurrentData = [
+        {client:"mary", categories:[1, 2, 3, 4, 5, 6, 7, 8, 1000000000, 10000000000, 10000000000], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {client:"mary", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
+    ];
+    const tempPastData = [
+        {client:"mary", categories:[1, 2, 3, 4, 5, 6, 7, 8, 1000000000, 10000000000, 10000000000], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {client:"mary", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {client:"mary", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {client:"mary", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {client:"mary", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
+    ];
+    const [app, setApp] = useState(0);
 
-    ]
     return (
         <>
             <CaretakerNavbar currentSelected={0}/>
+            <div className="caretaker-navbar">
+                {app == 0 && <button disabled>Current Applications</button>}
+                {app != 0 && <button onClick={() => setApp(0)}>Current Applications</button>}
+
+                {app == 1 && <button disabled>Past Applications</button>}
+                {app != 1 && <button onClick={() => setApp(1)}>Past Applications</button>}
+
+            </div>
             <div>
-                {tempData.map((patient) => {
-                    <CaretakerApps data={patient}/>
-                })}
+                {app == 0 && tempCurrentData.map((patient, i) => 
+                    <CaretakerApps data={patient} key={i}/>
+                )}
+                {app == 1 && tempPastData.map((patient, i) => 
+                    <CaretakerApps data={patient} key={i}/>
+                )}
             </div>
         </>
     )

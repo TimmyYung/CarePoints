@@ -8,7 +8,7 @@ const CaretakerNavbar = ({currentSelected}) => {
         window.location = "../home";
     }
     return (
-        <div id="caretaker-navbar">
+        <div className="caretaker-navbar">
             {currentSelected != 0 && <button onClick={() => changeRoute("view-applications")}>View Applications</button>}
             {currentSelected == 0 && <button disabled>View Applications</button>}
 
