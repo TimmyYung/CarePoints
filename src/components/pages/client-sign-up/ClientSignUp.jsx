@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import Linking from 'next/link';
 
@@ -14,20 +14,75 @@ export default function ClientSignUp (){
     const [passwordError, setPasswordError] = useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (emailError || passwordError || phoneError) {
-            return;
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [newClientName, setNewClientName] = useState('');
+    const [newClientEmail, setNewClientEmail] = useState('');
+    const [newClientPhoneNumber, setNewClientPhoneNumber] = useState('');
+    const [newClientPassword, setNewClientPassword] = useState('');
+    const [newClientDOB, setNewClientDOB] = useState('');
+    const [newEmergencyContactPhone, setNewEmergencyContactPhone] = useState('');
+    
+  
+    useEffect(() => {
+        fetch('/api/timtest') // assuming you have an endpoint set up at this URL
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((jsonData) => {
+            setData(jsonData);
+          })
+          .catch((error) => {
+            console.error('Error fetching data:', error);
+            setError('Error fetching data');
+          });
+      });
+      const handleAddClient = async (e) => {
+        e.preventDefault();
+        if (newClientName && newClientEmail && newClientPhoneNumber && newClientPassword && newClientDOB && newEmergencyContactPhone) {
+          const newClient = {
+            client_name: newClientName,
+            client_email: newClientEmail,
+            client_phone_number: newClientPhoneNumber,
+            password: newClientPassword,
+            DOB: newClientDOB,
+            Emergency_Contact_Phone: newEmergencyContactPhone,
+          };
+          
+          try {
+            const response = await fetch('http://localhost:5000/add-client', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(newClient),
+            });
+            
+            if (!response.ok) throw new Error('Failed to add client');
+            
+            // Clear input fields after successful submission
+            setNewClientName('');
+            setNewClientEmail('');
+            setNewClientPhoneNumber('');
+            setNewClientPassword('');
+            setNewClientDOB('');
+            setNewEmergencyContactPhone('');
+      
+          } catch (error) {
+            console.error('Error adding client:', error);
+          }
         }
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            birthDay: data.get('birthDay'),
-            password: data.get('password'),
-            phone: data.get('phoneno'),
-            emergphone: data.get('e-phoneno'),
-        });
-    };
+      };
+      
+
+      if (error) {
+        return <div>{error}</div>;
+      }
+    
+      if (!data) {
+        return <div>Loading...</div>;
+      }
 
     const validateInputs = () => {
         const email = document.getElementById('email');
@@ -86,7 +141,7 @@ export default function ClientSignUp (){
             </Typography>
             <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={handleAddClient}
             noValidate
             sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 6, paddingTop: 0 }}
             >
@@ -101,6 +156,8 @@ export default function ClientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Full Name' }}
+                        value={newClientName}
+                        onChange={(e) => setNewClientName(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -113,6 +170,8 @@ export default function ClientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Date of Birth' }}
+                        value={newClientDOB}
+                        onChange={(e) => setNewClientDOB(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -131,6 +190,8 @@ export default function ClientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Email' }}
+                        value={newClientEmail}
+                        onChange={(e) => setNewClientEmail(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -146,6 +207,8 @@ export default function ClientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Phone Number' }}
+                        value={newClientPhoneNumber}
+                        onChange={(e) => setNewClientPhoneNumber(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -161,6 +224,8 @@ export default function ClientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Emergency Contact Phone Number' }}
+                        value={newEmergencyContactPhone}
+                        onChange={(e) => setNewEmergencyContactPhone(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -178,6 +243,8 @@ export default function ClientSignUp (){
                         fullWidth
                         variant="outlined"
                         color={'primary'}
+                        value={newClientPassword}
+                        onChange={(e) => setNewClientPassword(e.target.value)}
                     />
                 </FormControl>
                 <Link
