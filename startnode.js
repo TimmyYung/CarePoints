@@ -21,9 +21,9 @@ function appendClientData(newClientData) {
         jsonData.client[newClientId] = newClientData;
 
         writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
-        console.log("Data successfully appended");
+        console.log("It appended!");
     } catch (error) {
-        console.log("An error has occurred while appending data: ", error);
+        console.log("ERROR APPENDING PLZ HELP", error);
     }
 }
 
@@ -45,7 +45,7 @@ app.post('/add-client', (req, res) => {
     // Append the new client data
     appendClientData(newClientData);
 
-    res.status(200).json({ message: 'Client added successfully!' });
+    res.status(200).json({ message: 'Client added!' });
 });
 
 app.listen(port, () => {
