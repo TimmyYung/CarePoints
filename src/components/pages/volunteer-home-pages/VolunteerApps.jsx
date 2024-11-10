@@ -16,9 +16,6 @@ const CaretakerApps = ({data}) => {
             <div>Volunteers Needed: {data.volunteersNeeded}</div>
             <br/>
             <div>Notes: {data.notes}</div>
-<<<<<<< HEAD
-            <Button style={{background:"#D6E7FA", border:"1px solid blue", borderRadius:"0"}}>Apply</Button>
-=======
             <Button style={{fontFamily:"pixel", background:"rgb(151, 174, 242)", border:"1px solid blue", borderRadius:"0"}} 
                 href={
                     'mailto:' + data.clientEmail + 
@@ -27,7 +24,6 @@ const CaretakerApps = ({data}) => {
             }>
                 Apply
             </Button>
->>>>>>> 932f1ec19e60a496590e6e5fd116eb06a908945e
         </div>
     )
 }
