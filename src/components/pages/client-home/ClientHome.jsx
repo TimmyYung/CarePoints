@@ -11,7 +11,7 @@ const category = [
     { value: 'respirationTherapy', label: 'Respiration Therapy' },
 ];
 
-export default function PatientHome() {
+export default function ClientHome() {
     const [postError, setPostError] = useState(false);
     const [postErrorMessage, setPostErrorMessage] = useState('');
     const handleSubmit = (event) => {
