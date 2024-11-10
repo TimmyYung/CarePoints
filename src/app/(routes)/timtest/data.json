@@ -1,0 +1,83 @@
+{
+    "client": {
+        "1": {
+            "client_name": "Evelyn",
+            "password": "pass1",
+            "client_email": "client1@example.com",
+            "client_phone_number": "555-0101"
+        },
+        "2": {
+            "client_name": "Bob",
+            "password": "pass2",
+            "client_email": "client2@example.com",
+            "client_phone_number": "555-0102"
+        },
+        "3": {
+            "client_name": "Alice",
+            "password": "pass3",
+            "client_email": "client3@example.com",
+            "client_phone_number": "555-0103"
+        },
+        "4": {
+            "client_name": "Diana",
+            "password": "pass4",
+            "client_email": "client4@example.com",
+            "client_phone_number": "555-0104"
+        },
+        "5": {
+            "client_name": "Charlie",
+            "password": "pass5",
+            "client_email": "client5@example.com",
+            "client_phone_number": "555-0105"
+        }
+    },
+    "Job_page": {
+        "1": {
+            "Service_Name": "Cleaning",
+            "Description": "Help needed with cleaning tasks.",
+            "Volunteers_Needed": 5,
+            "Points_per_job": 11,
+            "Hours_Expected": 3,
+            "Notes": "Flexible hours available."
+        },
+        "2": {
+            "Service_Name": "Delivery",
+            "Description": "Deliver packages promptly.",
+            "Volunteers_Needed": 9,
+            "Points_per_job": 44,
+            "Hours_Expected": 8,
+            "Notes": "Immediate start."
+        },
+        "3": {
+            "Service_Name": "Tutoring",
+            "Description": "Tutoring in various subjects.",
+            "Volunteers_Needed": 10,
+            "Points_per_job": 32,
+            "Hours_Expected": 4,
+            "Notes": "Need experienced volunteers."
+        }
+    },
+    "Volunteer": {
+        "1": {
+           "Volunteer_name": "Volunteer 1",
+           "Volunteer_password": "volunteer1",
+           "Volunteer_education": "Education Level 1",
+           "Volunteer_phone_number": "555-21",
+           "Volunteer_email": "volunteer1@example.com",
+           "Volunteer_points": 10,
+           "Volunteer_credentials_photo": ".",
+           "What_jobs_they_enroll_in": ["1", "2"],
+           "Average_rating": "4.5"
+       },
+       "2": {
+           "Volunteer_name": "Volunteer 2",
+           "Volunteer_password": "volunteer2",
+           "Volunteer_education": "Education Level 2",
+           "Volunteer_phone_number": "555-22",
+           "Volunteer_email": "volunteer2@example.com",
+           "Volunteer_points": 15,
+           "Volunteer_credentials_photo": "",
+           "What_jobs_they_enroll_in": ["1", "3"]
+       }
+    }
+}
