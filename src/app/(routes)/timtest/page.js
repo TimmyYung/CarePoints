@@ -12,7 +12,7 @@ const TimTest = () => {
 
   // FETCHING DATA FROM API ROUTE
   useEffect(() => {
-    fetch('/api/timtest') // Fetch from your API route
+    fetch('/api/timtest') 
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,12 +28,11 @@ const TimTest = () => {
       });
   }, []);
 
-  // Text fields to enter into JSON
-  const handleAddClient = (e) => {
+  // Function to handle form submission and send data to Node.js backend
+  const handleAddClient = async (e) => {
     e.preventDefault();
 
     if (newClientName && newClientEmail && newClientPhoneNumber && newClientPassword) {
-      const newClientId = Object.keys(data.client).length + 1;
       const newClient = {
         client_name: newClientName,
         client_email: newClientEmail,
@@ -41,20 +40,34 @@ const TimTest = () => {
         password: newClientPassword,
       };
 
-      // Update the client data in state
-      setData((prevData) => ({
-        ...prevData,
-        client: {
-          ...prevData.client,
-          [newClientId]: newClient,
-        },
-      }));
+      try {
+        // Send POST request to Node.js backend
+        const response = await fetch('http://localhost:5000/add-client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newClient),
+        });
 
-      // Clear input fields
-      setNewClientName('');
-      setNewClientEmail('');
-      setNewClientPhoneNumber('');
-      setNewClientPassword('');
+        if (!response.ok) {
+          throw new Error('Failed to add client');
+        }
+
+        // Clear input fields after successful submission
+        setNewClientName('');
+        setNewClientEmail('');
+        setNewClientPhoneNumber('');
+        setNewClientPassword('');
+
+        // Optionally refetch or update state with new client list
+        fetch('/api/timtest')
+          .then((response) => response.json())
+          .then((jsonData) => setData(jsonData));
+        
+      } catch (error) {
+        console.error('Error adding client:', error);
+      }
     }
   };
 
