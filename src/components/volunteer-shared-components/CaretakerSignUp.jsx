@@ -44,20 +44,6 @@ const CaretakerSignUp = ({signup}) => {
             setError('Error fetching data');
           });
       });
-
-
-    // if (newVolunteerName && newVolunteerEmail && newVolunteerPassword && newVolunteerPhoneNumber) {
-    //   const newVolunteer = {
-    //     volunteer_name: newVolunteerName,
-    //     volunteer_email: newVolunteerEmail,
-    //     volunteer_password: newVolunteerPassword,
-    //     volunteer_education: newVolunteerEducation,
-    //     volunteer_phone_number: newVolunteerPhoneNumber,
-    //     volunteer_points: 0,
-    //     volunteer_credentials_photo: "",
-    //     what_jobs_they_enroll_in: [],
-    //     average_rating: 0
-    //   };
  
   const handleAddVolunteer = async (e) => {
     e.preventDefault();
