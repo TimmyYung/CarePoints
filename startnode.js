@@ -23,8 +23,8 @@ function appendClientData(newClientData) {
         password: newClientData.password,
         client_email: newClientData.client_email,
         client_phone_number: newClientData.client_phone_number,
-        DOB: newClientData.DOB, // add DOB field
-        Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone // add Emergency_Contact_Phone field
+        DOB: newClientData.DOB,
+        Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone 
       };
   
       writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
