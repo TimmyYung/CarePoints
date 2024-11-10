@@ -188,7 +188,7 @@ export default function ClientJobPostAdd(){
                         />
                     </FormControl>
                     <FormControl>
-                        <FormLabel htmlFor="postCode">Postal Code</FormLabel>
+                        <FormLabel htmlFor="postCode">Where Service is Needed (Postal Code)</FormLabel>
                         <TextField
                             error={postError}
                             helperText={postErrorMessage}
@@ -240,7 +240,7 @@ export default function ClientJobPostAdd(){
                             />
                         </FormControl>
                         <FormControl sx={{ flex: 1 }}>
-                            <FormLabel htmlFor="points">Points</FormLabel>
+                            <FormLabel htmlFor="points">Points that Caretaker Receives</FormLabel>
                             <TextField
                                 id="points"
                                 error={pointsError}

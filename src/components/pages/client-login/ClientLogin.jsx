@@ -123,7 +123,7 @@ export default function ClientLogin (){
                     <Linking href="/client/sign-up">Don't have an account?</Linking>
                 </Link>
                 <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
-                    Sign up
+                    Login
                 </Button>
             </Box>
         </div>
