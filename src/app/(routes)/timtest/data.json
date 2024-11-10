@@ -44,8 +44,8 @@
   "Job_page": {
     "1": {
       "Categories": [
-        "Bathing",
-        "Cleaning"
+        "companionship",
+        "specialized_care"
       ],
       "Description": "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.",
       "Volunteers_Needed": 5,
@@ -55,8 +55,8 @@
     },
     "2": {
       "Categories": [
-        "Dressing",
-        "Cleaning"
+        "transportation",
+        "physical_therapy"
       ],
       "Description": "I need to be dressed.",
       "Volunteers_Needed": 9,
@@ -66,8 +66,8 @@
     },
     "3": {
       "Categories": [
-        "Errand",
-        "Socializing"
+        "personal_care",
+        "companionship"
       ],
       "Description": "Do stuff for me.",
       "Volunteers_Needed": 10,
