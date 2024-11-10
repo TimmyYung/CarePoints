@@ -29,6 +29,12 @@
       "password": "pass5",
       "client_email": "client5@example.com",
       "client_phone_number": "555-0105"
+    },
+    "6": {
+      "client_name": "awdoub",
+      "password": "awidn",
+      "client_email": "awdoub@gmail.com",
+      "client_phone_number": "1234567891"
     }
   },
   "Job_page": {

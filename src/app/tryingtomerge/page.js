@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
-import Linking from 'next/link';
 
 export default function PatientSignUp (){
     const [emailError, setEmailError] = useState(false);
@@ -19,6 +18,7 @@ export default function PatientSignUp (){
     const [newClientPhoneNumber, setNewClientPhoneNumber] = useState('');
     const [newClientPassword, setNewClientPassword] = useState('');
   
+
     useEffect(() => {
         fetch('/api/timtest') // assuming you have an endpoint set up at this URL
           .then((response) => {
@@ -35,6 +35,7 @@ export default function PatientSignUp (){
             setError('Error fetching data');
           });
       });
+
       const handleNewClient = async (e) => {
         e.preventDefault();
     
@@ -213,7 +214,7 @@ export default function PatientSignUp (){
                     variant="body2"
                     sx={{ alignSelf: 'baseline' }}
                     >
-                     <Linking href="/patient-login">Already have an account?</Linking>
+                    Already have an account?
                 </Link>
                 <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
                     Sign up
