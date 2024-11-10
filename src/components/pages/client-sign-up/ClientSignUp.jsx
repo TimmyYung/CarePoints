@@ -22,7 +22,10 @@ export default function ClientSignUp (){
         const data = new FormData(event.currentTarget);
         console.log({
             email: data.get('email'),
+            birthDay: data.get('birthDay'),
             password: data.get('password'),
+            phone: data.get('phoneno'),
+            emergphone: data.get('e-phoneno'),
         });
     };
 
@@ -43,7 +46,7 @@ export default function ClientSignUp (){
             setEmailErrorMessage('');
         }
 
-        if (!phoneno.value || phoneno.value.length < 6 || isNaN(phoneno.value)) {
+        if (!phoneno.value || phoneno.value.length < 10 || isNaN(phoneno.value)) {
             setPhoneError(true);
             setPhoneErrorMessage('Please enter a valid phone number.');
             isValid = false;
@@ -52,7 +55,7 @@ export default function ClientSignUp (){
             setPhoneErrorMessage('');
         }
 
-        if (!ephoneno.value || ephoneno.value.length < 6 || isNaN(ephoneno.value)) {
+        if (!ephoneno.value || ephoneno.value.length < 10 || isNaN(ephoneno.value)) {
             setEPhoneError(true);
             setEPhoneErrorMessage('Please enter a valid phone number.');
             isValid = false;
