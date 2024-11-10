@@ -104,7 +104,7 @@ export default function ClientLogin (){
                     variant="body2"
                     sx={{ alignSelf: 'baseline' }}
                     >
-                    <Linking href="/patient-sign-up">Don't have an account?</Linking>
+                    <Linking href="/client/sign-up">Don't have an account?</Linking>
                 </Link>
                 <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
                     Sign up
