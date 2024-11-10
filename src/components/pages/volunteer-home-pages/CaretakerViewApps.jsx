@@ -6,17 +6,19 @@ const { default: CaretakerNavbar } = require("../../volunteer-shared-components/
 
 const CaretakerViewApps = () => {
     const tempCurrentData = [
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3, 4, 5, 6, 7, 8, 1000000000, 10000000000, 10000000000], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
+        {clientEmail:"test@test.com", categories: ["companionship", "housekeeping","personal_care", "physical_therapy"], volunteersNeeded:7, points:6, hours:"7 hours", notes:"HELLOOOOOOOOOOOOOOOOO", postal:"M5A 0M4"},
+        {clientEmail:"mary@gmail.com", categories:["specialized_care", "health_monitor"], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
     ];
     const tempPastData = [
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3, 4, 5, 6, 7, 8, 1000000000, 10000000000, 10000000000], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
+        {clientEmail:"543@25.com", categories:[ "transportation" ], volunteersNeeded:435, points:5, hours:"1 hours", notes:"N/A", postal:"L4B 3W4"},
+        {clientEmail:"mary@gmail.com", categories:[ "housekeeping", "nutritional_support" ], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {clientEmail:"mary@gmail.com", categories:[ "specialized_care", "health_monitor" ], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {clientEmail:"mary@gmail.com", categories:[ "transportation", "nutritional_support" ], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
+        {clientEmail:"mary@gmail.com", categories:[ "companionship", "personal_care'" ], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
     ];
     const [app, setApp] = useState(0);
+
+    
 
     return (
         <>

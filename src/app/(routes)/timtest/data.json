@@ -137,10 +137,11 @@
     "7": {
       "description": "safasf",
       "categories": [
-        "health_monitor"
+        "health_monitor",
+        "physical_therapy"
       ],
       "volunteers_needed": 4,
-      "postal_code": "M5A 0M4",
+      "postal_code": "L2J 2M2",
       "points_per_job": 5,
       "hours_expected": 4,
       "client_email": "test@test.com",
