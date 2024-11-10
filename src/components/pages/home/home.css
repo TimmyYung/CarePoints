@@ -1,0 +1,27 @@
+#home-page {
+  text-align: center;
+  margin: 50px;
+  color: #0D0D33;
+}
+
+#home-header {
+    font-size: 75px;
+    font-weight: normal;
+    margin: 20px 0;
+    color: #014EAF;
+}
+#home-description {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+#home-cont {
+     margin: 30px 0;
+     font-weight: normal;
+}
+#home-sign-up {
+    color: #0D0D33;
+    margin-right: 20px;
+}
+#home-login {
+    color: #014EAF;
+}

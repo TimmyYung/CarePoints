@@ -1,8 +1,6 @@
 
 // import { Metadata } from "next";
-
-import HomePage from "@/components/pages/home/HomePage";
-
+import CareTakerSignUp from "@/components/pages/caretaker-sign-up/CaretakerSignUp";
 // export const metadata: Metadata = {
 //   title: "Achievements",
 //   description: "Page to earn and view achievements",
@@ -10,9 +8,7 @@ import HomePage from "@/components/pages/home/HomePage";
 
 const homePage = () => {
     return (
-      <>
-        <HomePage/>
-      </>
+        <CareTakerSignUp/>
     );
   };
 
