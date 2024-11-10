@@ -31,6 +31,8 @@ const categories = [
 export default function ClientJobPostAdd(){
     const [categoryError, setCategoryError] = useState(false);
     const [categoryErrorMessage, setCategoryErrorMessage] = useState('');
+    const [postError, setPostError] = useState(false);
+    const [postErrorMessage, setPostErrorMessage] = useState('');
     const [volunteerNoError, setVolunteerNoError] = useState(false);
     const [volunteerNoErrorMessage, setVolunteerNoErrorMessage] = useState('');
     const [serHourError, setSerHourError] = useState(false);
@@ -40,6 +42,7 @@ export default function ClientJobPostAdd(){
 
     const [category, setCategory] = useState([]);
     const [notes, setNotes] = useState("");
+    const [postCode, setPostCode] = useState("");
     const [volunteerNo, setVolunteerNo] = useState(0);
     const [serHour, setSerHour] = useState(0);
     const [points, setPoints] = useState(0);
@@ -63,6 +66,7 @@ export default function ClientJobPostAdd(){
 
     const validateInputs = () => {
         const category = document.getElementById('category');
+        const postal = document.getElementById('postCode');
         const volunteerNo = document.getElementById('volunteerNo');
         const serHour = document.getElementById('serHour');
         const points = document.getElementById('points');
@@ -76,6 +80,15 @@ export default function ClientJobPostAdd(){
         } else {
             setCategoryError(false);
             setCategoryErrorMessage('');
+        }
+
+        if (!postal.value || !/^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/.test(postal.value)) {
+            setPostError(true);
+            setPostErrorMessage('Please enter a valid postal code.');
+            isValid = false;
+        } else {
+            setPostError(false);
+            setPostErrorMessage('');
         }
 
         if (!volunteerNo.value || volunteerNo.value <= 0 ) {
@@ -172,6 +185,23 @@ export default function ClientJobPostAdd(){
                             sx={{ ariaLabel: 'Notes' }}
                             value={notes}
                             onChange={(e) => setNotes(e.target.value)}
+                        />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel htmlFor="postCode">Postal Code</FormLabel>
+                        <TextField
+                            error={postError}
+                            helperText={postErrorMessage}
+                            id="postCode"
+                            type="text"
+                            name="postCode"
+                            placeholder="X1X 1X1"
+                            autoComplete="postal-code"
+                            fullWidth
+                            required
+                            variant="outlined"
+                            color="primary"
+                            aria-label="Postal Code"
                         />
                     </FormControl>
                     <Box sx={{  display: 'flex', flexDirection: 'row', gap: 2, paddingBottom: 5 }}>
