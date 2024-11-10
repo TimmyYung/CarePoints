@@ -158,7 +158,7 @@ export default function ClientJobPostAdd() {
                     <IconButton aria-label="home" color="primary" href="/client/job-post" size="large">
                         <HomeIcon fontSize="inherit"/>
                     </IconButton>
-                    <IconButton aria-label="profile" color="primary" href="/client" size="large">
+                    <IconButton aria-label="profile" color="primary"  size="large">
                         <PersonIcon fontSize="inherit"/>
                     </IconButton>
                 </Box>

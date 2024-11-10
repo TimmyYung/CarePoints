@@ -63,7 +63,7 @@ export default function ClientJobPost(){
     >
         <Box  sx={{  display: 'flex', flexDirection: 'column', width: '100%', padding: 5, paddingTop: 3}}>
             <Box sx={{  display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                <IconButton aria-label="profile" color="primary" href="/client" size="large">
+                <IconButton aria-label="profile" color="primary"  size="large">
                     <PersonIcon fontSize="inherit"/>
                 </IconButton>
             </Box>
