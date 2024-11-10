@@ -151,9 +151,7 @@ export default function ClientJobPostAdd() {
 
     return (
         <div style={{
-            backgroundImage: "url('riverbg.png')",
-          backgroundRepeat:"no-repeat",
-          backgroundSize: "cover"
+            backgroundColor:"#AFCFF2", height:"100%"
           }}>
             <Box sx={{  display: 'flex', flexDirection: 'column', padding: 5, paddingTop: 3}}>
                 <Box sx={{  display: 'flex', flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center'}}>
@@ -167,10 +165,10 @@ export default function ClientJobPostAdd() {
                 <Typography
                     component="h1"
                     variant="h4"
-                    sx={{ paddingLeft: 6, paddingTop: 3, paddingBottom: 2 }}
+                    sx={{ paddingLeft: 6, paddingTop: 3, paddingBottom: 2, fontFamily:"pixel" }}
                 >
                     Add Your Job Request
-                </Typography>
+                </Typography><br/>
                 <Box
                     component="form"
                     onSubmit={handleAddJob}
