@@ -1,45 +1,46 @@
 import React from 'react';
 import { Box, IconButton, Typography, Button, Card, CardContent, Chip, List} from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-
-const tempdata = {"Job_page": {
-    "1": {
-      "Categories": [
-        "companionship",
-        "specialized_care"
-      ],
-      "Description": "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.",
-      "Volunteers_Needed": 5,
-      "postal_code": "L2J 2J2",
-      "Points_per_job": 11,
-      "Hours_Expected": 3,
-      "email":"valid@example.com"
-    },
-    "2": {
-      "Categories": [
-        "transportation",
-        "physical_therapy"
-      ],
-      "Description": "I need to be dressed.",
-      "Volunteers_Needed": 9,
-      "postal_code": "H3H 3H3",
-      "Points_per_job": 44,
-      "Hours_Expected": 8,
-      "email":"valid@example.com"
-    },
-    "3": {
-      "Categories": [
-        "personal_care",
-        "companionship"
-      ],
-      "Description": "Do stuff for me.",
-      "Volunteers_Needed": 10,
-      "postal_code": "A1A 1A1",
-      "Points_per_job": 32,
-      "Hours_Expected": 4,
-      "email":"notvalid@example.com"
-    }
-  }}
+import jobData from '/src/app/(routes)/timtest/data.json';
+// const tempdata = {"Job_page": {
+//     "1": {
+//       "Categories": [
+//         "companionship",
+//         "specialized_care"
+//       ],
+//       "Description": "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.",
+//       "Volunteers_Needed": 5,
+//       "postal_code": "L2J 2J2",
+//       "Points_per_job": 11,
+//       "Hours_Expected": 3,
+//       "email":"valid@example.com"
+//     },
+//     "2": {
+//       "Categories": [
+//         "transportation",
+//         "physical_therapy"
+//       ],
+//       "Description": "I need to be dressed.",
+//       "Volunteers_Needed": 9,
+//       "postal_code": "H3H 3H3",
+//       "Points_per_job": 44,
+//       "Hours_Expected": 8,
+//       "email":"valid@example.com"
+//     },
+//     "3": {
+//       "Categories": [
+//         "personal_care",
+//         "companionship"
+//       ],
+//       "Description": "Do stuff for me.",
+//       "Volunteers_Needed": 10,
+//       "postal_code": "A1A 1A1",
+//       "Points_per_job": 32,
+//       "Hours_Expected": 4,
+//       "email":"notvalid@example.com"
+//     }
+//   }}
+const tempdata = jobData;
 
 const categories = [
     { value: 'personal_care', label: 'Personal Care Assistance' },
@@ -77,7 +78,7 @@ export default function ClientJobPost(){
                 <Box sx={{ display: 'flex', flexDirection: 'column', maxHeight: 500, overflow: 'auto', padding: 5, paddingTop: 0 }}>
                     <List>
                         {Object.keys(tempdata.Job_page).map((jobId) => {
-                             if (tempdata.Job_page[jobId].email === "valid@example.com") {
+                             if (tempdata.Job_page[jobId].Client_email !== "") {
                                 return (
                                   <Card key={jobId} variant="outlined" sx={{ gap: 3 }}>
                                     <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
