@@ -7,9 +7,9 @@ const { default: CaretakerNavbar } = require("../../volunteer-shared-components/
 
 const CaretakerFindClients = () => {
     const tempData = [
-        {clientEmail:"mary@gmail.com", categories:[1, "personal_care", 3, 4, 5, 6, 7, 8, 1000000000, 10000000000, 10000000000], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, "housekeeping"], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"},
-        {clientEmail:"mary@gmail.com", categories:[1, 2, 3], volunteersNeeded:5, points:5, hours:"5 hours", notes:"N/A", postal:"A1A 1A1"}
+        {clientEmail:"client1@example.com", categories:[ "companionship", "specialized_care" ], volunteersNeeded:5, points:11, hours:"3 hours", notes: "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.", postal:"L2J 2J2"},
+        {clientEmail:"client1@example.com", categories:["transportation", "physical_therapy"], volunteersNeeded:9, points:44, hours:"8 hours", notes:"I need to be dressed.", postal:"H3H 3H3"},
+        {clientEmail:"test@test.com", categories:["health_monitor", "physical_therapy"], volunteersNeeded:4, points:5, hours:"4 hours", notes: "safasf", postal:"L2J 2M2"}
     ];
 
     const [displayData, setDisplayData] = useState(tempData);
