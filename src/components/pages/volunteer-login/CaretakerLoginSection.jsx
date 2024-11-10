@@ -6,41 +6,35 @@ import { useState } from "react";
 
 const CaretakerLoginSection = () => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
-    const [loginAttempted, setLoginAttempted] = useState(false);
     const handleLogin = () => {
-        if(email != "" && password != "")
+        if(document.getElementById("volunteer-email").innerHTML == "")
+            setEmailError(true);
+        else
+            setEmailError(false);
+
+        if(document.getElementById("volunteer-password").innerHTML == "")
+            setPasswordError(true);
+        else
+            setPasswordError(false);
+
+        if(!emailError && !passwordError)
             window.location = "../volunteer/find-clients";
-        setLoginAttempted(true);
     }
     return (
         <div id="caretaker-login-section">
-            {!loginAttempted && <div id="caretaker-login">
-                <h3>Caretaker Login</h3>
+            <div id="caretaker-login">
+                <h3>Volunteer Login</h3>
                 <br/>
-                <TextField label="Email:" onChange={(e) => setEmail(e.target.value)}/>
+                <TextField error={emailError} required label="Email:" id="volunteer-email" onChange={(e) => {if(e.target.value != "") setEmailError(false)}}/>
                 <br/>
-                <TextField label="Password:" onChange={(e) => setPassword(e.target.value)}/>
+                <TextField error={passwordError} required label="Password:" id="volunteer-password" onChange={(e) => {if(e.target.value != "") setPasswordError(false)}}/>
                 <br/>
+                <a href="../volunteer/sign-up" style={{color:"blue"}}>Don't have an account?</a><br/>
                 <Button onClick={handleLogin}>Login</Button>
-            </div>}
-            {loginAttempted && <div id="caretaker-login">
-                <h3>Caretaker Login</h3>
-                <br/>
-                {email != "" && <TextField label="Email:" onChange={(e) => setEmail(e.target.value)}/>}
-                {email == "" && <TextField label="Email:" error helperText="Field cannot be empty" onChange={(e) => setEmail(e.target.value)}/>}
-
-                <br/>
-                {password != "" && <TextField label="Password:" onChange={(e) => setPassword(e.target.value)}/>}
-                {password == "" && <TextField label="Password:" error helperText="Field cannot be empty" onChange={(e) => setPassword(e.target.value)}/>}
-                <br/>
-                <Button onClick={handleLogin}>Login</Button>
-                {email}
-                {password}
-            </div>}
-            <div id="block"/>
+            </div>
         </div>
     )
 }

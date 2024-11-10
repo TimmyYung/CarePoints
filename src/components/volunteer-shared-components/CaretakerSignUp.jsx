@@ -98,6 +98,7 @@ const CaretakerSignUp = ({signup}) => {
                     <TextField error={availabilityError} required label="Availability:" id="caretaker-avail" onChange={(e) => {if(e.target.value != "") setAvailabilityError(false)}}/>
                 </div></>
             </div>
+            <a href="../volunteer/login" style={{color:"blue"}}>Already have an account?</a><br/>
             {signup && <Button onClick={handleSubmit}>Sign Up</Button>}
             {!signup && <Button onClick={handleSubmit}>Save profile</Button>}
 
