@@ -19,10 +19,11 @@ hr {
     font-size: 75px;
     font-weight: normal;
     margin: 20px 0;
-    color: #014EAF;
+    color: white;
 }
 #home-description {
     font-family: "pixel";
+    color: #F9F6D3;
     font-size: 30px;
     margin-bottom: 30px;
 }
@@ -33,10 +34,11 @@ hr {
 }
 
 #home-sign-up {
+    font-size: 30px;
     border-radius: 0;
     font-family: "pixel";
     background-color: #0D0D33;
-    margin-right: 20px;
+    margin-right: 70px;
     color: #014EAF;
 }
 #home-sign-up:not([disabled]) {
@@ -51,6 +53,8 @@ hr {
 }
 
 #home-login {
+    font-size: 30px;
+margin-left: 70px;
     border-radius: 0;
     font-family: "pixel";
     background-color: #014EAF;

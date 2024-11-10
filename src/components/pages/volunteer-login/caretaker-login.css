@@ -3,6 +3,9 @@
     src: url("../../FFFFORWA.TTF");
 }
 #caretaker-login-section {
+    background-image: url("../../riverbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: "pixel";
     display: flex;
     min-height: 100%;

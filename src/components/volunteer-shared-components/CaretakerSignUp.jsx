@@ -186,11 +186,12 @@ const CaretakerSignUp = ({signup}) => {
 
     return (
         <div id="caretaker-sign-up">
-            <div>
-                <><div>
-                    <h3>Caretaker Sign Up</h3>
+            <div style={{marginTop:"40px"}}>
+                <><div style={{width:"30%", marginRight:"90px"}}>
+                    <h1 style={{color:"#F3ECA6"}}>Caretaker Sign Up</h1><br/>
                     <br/>
                     <TextField 
+                      style={{backgroundColor:"white", borderRadius:"10px"}}
                       error={nameError} 
                       label="Full name:" 
                       id="caretaker-name" 
@@ -201,9 +202,11 @@ const CaretakerSignUp = ({signup}) => {
                         setNewVolunteerName(e.target.value); 
                       }}
                     />
-                    <br/>
+                    <br/><br/>
                     <TextField 
                       error={emailError} 
+                      style={{backgroundColor:"white", borderRadius:"10px"}}
+
                       label="Email:" 
                       id="caretaker-email" 
                       required 
@@ -213,8 +216,10 @@ const CaretakerSignUp = ({signup}) => {
                         setNewVolunteerEmail(e.target.value); // Update state with input value
                       }}
                     />
-                    <br/>
+                    <br/><br/>
                     <TextField 
+                                          style={{backgroundColor:"white", borderRadius:"10px"}}
+
                       error={phoneError} 
                       label="Phone Number:" 
                       id="caretaker-phone" 
@@ -223,8 +228,10 @@ const CaretakerSignUp = ({signup}) => {
                         if (e.target.value !== '') setPhoneError(false);
                         setNewVolunteerPhoneNumber(e.target.value); setPhoneError(false)
                       }}/>
-                    <br/>
+                    <br/><br/>
                     <TextField 
+                                          style={{backgroundColor:"white", borderRadius:"10px"}}
+
                       error={passwordError} 
                       label="Password:" 
                       id="caretaker-password" 
@@ -235,8 +242,10 @@ const CaretakerSignUp = ({signup}) => {
                         setNewVolunteerPassword(e.target.value); // Update state with input value
                       }}
                     />
-                    <br/>
+                    <br/><br/>
                     <TextField 
+                                          style={{backgroundColor:"white", borderRadius:"10px"}}
+
                       error={postalError} 
                       id="caretaker-postal" 
                       label="Postal Code:" 
@@ -244,16 +253,20 @@ const CaretakerSignUp = ({signup}) => {
                       setPostalError(false)}}
                     />
                 </div>
-                <div>
+                <div style={{width:"65%"}}>
                     <TextField error={eduError} 
+                                          style={{backgroundColor:"white", borderRadius:"10px"}}
+
                       label="Education:" 
                       required 
                       id="caretaker-edu" 
                       onChange={(e) => {if(e.target.value != "") 
                       setEduError(false)}}
                     />
-                    <br/>
+                    <br/><br/>
                     <TextField 
+                                          style={{backgroundColor:"white", borderRadius:"10px"}}
+
                       error={expError} 
                       label="Work Experience:" 
                       required 
@@ -261,24 +274,28 @@ const CaretakerSignUp = ({signup}) => {
                       onChange={(e) => {if(e.target.value != "") 
                       setExpError(false)}}
                     />
-                    <br/>
+                    <br/><br/>
                     {signup && <>
-                        <label htmlFor="caretaker-id">Photo ID:</label>
-                        <input required id="caretaker-id" type="file" accept="image/*" />
-                        <br/>
+                        <label htmlFor="caretaker-id" style={{color:"white"}}>Photo ID:</label>
+                        <input style={{fontSize:"25px"}} required id="caretaker-id" type="file" accept="image/*" />
+                        <br/><br/>
                     </>}
                     {signup && <>
-                        <label htmlFor="caretaker-license">Photo of medical license:</label>
-                        <input required id="caretaker-id" type="file" accept="image/*" />
-                        <br/>
+                        <label htmlFor="caretaker-license" style={{color:"white"}}>Photo of medical license:</label>
+                        <input style={{fontSize:"25px"}}  required id="caretaker-id" type="file" accept="image/*" />
+                        <br/><br/>
                     </>}
-                    <TextField error={servicesError} required label="Services:" id="caretaker-services" onChange={(e) => {if(e.target.value != "") setServicesError(false)}}/>
-                    <br/>
-                    <TextField error={availabilityError} required label="Availability:" id="caretaker-avail" onChange={(e) => {if(e.target.value != "") setAvailabilityError(false)}}/>
+                    <TextField                      style={{backgroundColor:"white", marginTop:"-10px", borderRadius:"10px"}}
+ error={servicesError} required label="Services:" id="caretaker-services" onChange={(e) => {if(e.target.value != "") setServicesError(false)}}/>
+                    <br/><br/>
+                    <TextField                      style={{backgroundColor:"white", borderRadius:"10px"}}
+ error={availabilityError} required label="Availability:" id="caretaker-avail" onChange={(e) => {if(e.target.value != "") setAvailabilityError(false)}}/>
                 </div></>
-            </div>
-            {signup && <Button className="font" onClick={handleAddVolunteer}>Sign Up</Button>}
+            </div><br/><br/>
+            <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
+            {signup && <Button className="font" onClick={handleAddVolunteer} style={{backgroundColor:"white", marginLeft:"17px"}}>Sign Up</Button>}
             {!signup && <Button className="font" onClick={handleAddVolunteer}>Save profile</Button>}
+            </div>
 
         </div>
     )

@@ -21,16 +21,17 @@ const HomePage = () => {
     }
     return (
         <div id="home-page">
-            <h1 id="home-header">Welcome to [blank]!</h1>
+            <h1 id="home-header">Welcome to CarePoints!</h1>
             <p id="home-description">Our goal is to connect caretakers with local volunteers to help with various medical tasks.</p>
-            <hr/>
-            <h2 id="home-cont">I want to...</h2>
-            {selection == 0 && <div id="home-buttons">
+            {/* <hr/> */}
+            <br/><br/>
+            <h2 id="home-cont">I want to...</h2><br/>
+            {selection == 0 && <div id="home-buttons" style={{width:"100%"}}>
                 <Button id="home-sign-up" variant="contained" onClick={() => setSelection(1)}>Sign Up</Button>
                 <Button variant="contained" id="home-login" onClick={() => setSelection(2)}>Login</Button>
             </div>}
             {/* if sign up is selected */}
-            {selection == 1 && <div id="home-buttons">
+            {selection == 1 && <div id="home-buttons" style={{width:"100%"}}>
                 <Button id="home-sign-up" disabled>Sign Up</Button>
                 <Button id="home-login" variant="outlined" onClick={() => setSelection(2)}>Login</Button>
             </div>}
@@ -38,10 +39,10 @@ const HomePage = () => {
             {selection == 2 && <div id="home-buttons">
                 <Button id="home-sign-up" variant="outlined" onClick={() => setSelection(1)}>Sign Up</Button>
                 <Button id="home-login" disabled>Login</Button>
-            </div>}
+            </div>} 
             {selection != 0 && <div>
                 <br/>
-                <hr/>
+                <hr style={{border:"1px solid white"}}/>
                 <br/>
                 {selection == 1 && <h2 className="font">I am signing up as a...</h2>}
                 {selection == 2 && <h2 className="font">I am logging in as a...</h2>}

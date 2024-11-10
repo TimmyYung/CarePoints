@@ -3,7 +3,15 @@
     src: url("../FFFFORWA.TTF");
 }
 #caretaker-sign-up {
+    height: 100%;
+    background-image: url("../riverbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 30px;
+}
+
+#caretaker-sign-up > input {
+    background-color: white;
 }
 
 #caretaker-sign-up > div {
