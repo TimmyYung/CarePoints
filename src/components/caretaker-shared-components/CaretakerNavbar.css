@@ -1,0 +1,11 @@
+#caretaker-navbar {
+    width: 100%;
+    display: flex;
+}
+#caretaker-navbar > button {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
