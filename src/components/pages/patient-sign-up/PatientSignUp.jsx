@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import Linking from 'next/link';
 
@@ -12,17 +12,78 @@ export default function PatientSignUp (){
     const [passwordError, setPasswordError] = useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
-    const handleSubmit = (event) => {
-        if (emailError || passwordError || phoneError) {
-            event.preventDefault();
-            return;
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [newClientName, setNewClientName] = useState('');
+    const [newClientEmail, setNewClientEmail] = useState('');
+    const [newClientPhoneNumber, setNewClientPhoneNumber] = useState('');
+    const [newClientPassword, setNewClientPassword] = useState('');
+  
+    useEffect(() => {
+        fetch('/api/timtest') // assuming you have an endpoint set up at this URL
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((jsonData) => {
+            setData(jsonData);
+          })
+          .catch((error) => {
+            console.error('Error fetching data:', error);
+            setError('Error fetching data');
+          });
+      });
+      const handleNewClient = async (e) => {
+        e.preventDefault();
+    
+        if (newClientName && newClientEmail && newClientPhoneNumber && newClientPassword) {
+          const newClient = {
+            client_name: newClientName,
+            client_email: newClientEmail,
+            client_phone_number: newClientPhoneNumber,
+            password: newClientPassword,
+          };
+    
+          try {
+            // Send POST request to Node.js backend
+            const response = await fetch('http://localhost:5000/add-client', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newClient),
+            });
+    
+            if (!response.ok) {
+              throw new Error('Failed to add client');
+            }
+    
+            // Clear input fields after successful submission
+            setNewClientName('');
+            setNewClientEmail('');
+            setNewClientPhoneNumber('');
+            setNewClientPassword('');
+    
+            // Optionally refetch or update state with new client list
+            fetch('/api/timtest')
+              .then((response) => response.json())
+              .then((jsonData) => setData(jsonData));
+            
+          } catch (error) {
+            console.error('Error adding client:', error);
+          }
         }
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+      };
+
+      if (error) {
+        return <div>{error}</div>;
+      }
+    
+      if (!data) {
+        return <div>Loading...</div>;
+      }
 
     const validateInputs = () => {
         const email = document.getElementById('email');
@@ -71,7 +132,7 @@ export default function PatientSignUp (){
             </Typography>
             <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={handleNewClient}
             noValidate
             sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
             >
@@ -86,6 +147,8 @@ export default function PatientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Full Name' }}
+                        value={newClientName}
+                        onChange={(e) => setNewClientName(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -104,6 +167,8 @@ export default function PatientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Email' }}
+                        value={newClientEmail}
+                        onChange={(e) => setNewClientEmail(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -119,6 +184,8 @@ export default function PatientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Phone Number' }}
+                        value={newClientPhoneNumber}
+                        onChange={(e) => setNewClientPhoneNumber(e.target.value)}
                     />
                 </FormControl>
                 <FormControl>
@@ -136,6 +203,8 @@ export default function PatientSignUp (){
                         fullWidth
                         variant="outlined"
                         color={'primary'}
+                        value={newClientPassword}
+                        onChange={(e) => setNewClientPassword(e.target.value)}
                     />
                 </FormControl>
                 <Link
