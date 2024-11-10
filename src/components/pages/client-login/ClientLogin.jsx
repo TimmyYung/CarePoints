@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
 import Linking from 'next/link';
 import clientData from '/src/app/(routes)/timtest/data.json';
@@ -18,7 +17,6 @@ export default function ClientLogin (){
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const router = useRouter();
     
         const client = Object.values(clientData.client).find(
           (client) => client.client_email === email
@@ -27,7 +25,6 @@ export default function ClientLogin (){
         if (client) {
           if (client.password === password) {
             setErrorMessage(''); 
-            router.push('/client/job-post');
             alert(`Welcome ${client.client_name}!`);  // Successful login
           } else {
             setErrorMessage('Incorrect password. Please try again.');
