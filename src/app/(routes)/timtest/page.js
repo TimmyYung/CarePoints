@@ -10,9 +10,9 @@ const TimTest = () => {
   const [newClientPhoneNumber, setNewClientPhoneNumber] = useState('');
   const [newClientPassword, setNewClientPassword] = useState('');
 
-  // FETCHING DATA FROM API ROUTE
+
   useEffect(() => {
-    fetch('/api/timtest') 
+    fetch('/api/timtest') // assuming you have an endpoint set up at this URL
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,8 +26,7 @@ const TimTest = () => {
         console.error('Error fetching data:', error);
         setError('Error fetching data');
       });
-  }, []);
-
+  });
   // Function to handle form submission and send data to Node.js backend
   const handleAddClient = async (e) => {
     e.preventDefault();
