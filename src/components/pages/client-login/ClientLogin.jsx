@@ -88,12 +88,12 @@ export default function ClientLogin () {
                     component="form"
                     onSubmit={handleLogin}
                     noValidate
-                    sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
+                    sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0, width: '40%' }}
                 >
                     <Typography
                         component="h1"
                         variant="h4"
-                        sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel",  paddingTop: 10, paddingBottom: 2, color: 'white' }}
+                        sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel",  paddingBottom: 2, color: 'white', textAlign: 'center' }}
                     >
                         Login
                     </Typography>
@@ -145,7 +145,7 @@ export default function ClientLogin () {
                         >
                         <Linking href="/client/sign-up">Don't have an account?</Linking>
                     </Link>
-                    <Button type="submit" fullWidth variant="contained" onClick={validateInputs} style={{fontFamily:"pixel"}}>
+                    <Button type="submit" fullWidth variant="contained" onClick={validateInputs} style={{fontFamily:"pixel",width: '40%', alignSelf: 'center'}}>
                         Login
                     </Button>
                 </Box>
