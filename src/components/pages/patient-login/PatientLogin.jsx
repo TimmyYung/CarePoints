@@ -2,18 +2,17 @@
 
 import React, { useState } from 'react';
 import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from '@mui/material';
+import Linking from 'next/link';
 
 export default function PatientSignUp (){
     const [emailError, setEmailError] = useState(false);
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
-    const [phoneError, setPhoneError] = useState(false);
-    const [phoneErrorMessage, setPhoneErrorMessage] = useState('');
     const [passwordError, setPasswordError] = useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
     const handleSubmit = (event) => {
+        event.preventDefault();
         if (emailError || passwordError) {
-            event.preventDefault();
             return;
         }
         const data = new FormData(event.currentTarget);
@@ -25,7 +24,6 @@ export default function PatientSignUp (){
 
     const validateInputs = () => {
         const email = document.getElementById('email');
-        const phoneno = document.getElementById('phoneno');
         const password = document.getElementById('password');
 
         let isValid = true;
@@ -37,15 +35,6 @@ export default function PatientSignUp (){
         } else {
             setEmailError(false);
             setEmailErrorMessage('');
-        }
-
-        if (!phoneno.value || phoneno.value.length < 6 || isNaN(phoneno.value)) {
-            setPhoneError(true);
-            setPhoneErrorMessage('Please enter a valid phone number.');
-            isValid = false;
-        } else {
-            setPhoneError(false);
-            setPhoneErrorMessage('');
         }
 
         if (!password.value || password.value.length < 6) {
@@ -66,27 +55,14 @@ export default function PatientSignUp (){
                 variant="h4"
                 sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', paddingLeft: 5, paddingTop: 10, paddingBottom: 2 }}
             >
-                Sign up
+                Login
             </Typography>
             <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
+                component="form"
+                onSubmit={handleSubmit}
+                noValidate
+                sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
             >
-                <FormControl>
-                    <FormLabel htmlFor="fullname">Full Name</FormLabel>
-                    <TextField
-                        id="fullname"
-                        type="fullname"
-                        name="fullname"
-                        placeholder="John Doe"
-                        required
-                        variant="outlined"
-                        color={'primary'}
-                        sx={{ ariaLabel: 'Full Name' }}
-                    />
-                </FormControl>
                 <FormControl>
                     <FormLabel htmlFor="email">Email</FormLabel>
                     <TextField
@@ -103,21 +79,6 @@ export default function PatientSignUp (){
                         variant="outlined"
                         color={'primary'}
                         sx={{ ariaLabel: 'Email' }}
-                    />
-                </FormControl>
-                <FormControl>
-                    <FormLabel htmlFor="phoneno">Phone Number</FormLabel>
-                    <TextField
-                        error={phoneError}
-                        helperText={phoneErrorMessage}
-                        id="phoneno"
-                        type="phoneno"
-                        name="phoneno"
-                        placeholder="1234567899"
-                        required
-                        variant="outlined"
-                        color={'primary'}
-                        sx={{ ariaLabel: 'Phone Number' }}
                     />
                 </FormControl>
                 <FormControl>
@@ -143,7 +104,7 @@ export default function PatientSignUp (){
                     variant="body2"
                     sx={{ alignSelf: 'baseline' }}
                     >
-                    Already have an account?
+                    <Linking href="/patient-sign-up">Don't have an account?</Linking>
                 </Link>
                 <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
                     Sign up
