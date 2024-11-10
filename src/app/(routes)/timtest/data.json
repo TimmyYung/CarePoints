@@ -65,28 +65,6 @@
       "Points_per_job": 44,
       "Hours_Expected": 8,
       "Client_email": "client1@example.com"
-    },
-    "3": {
-      "description": "45",
-      "categories": [
-        "transportation"
-      ],
-      "volunteers_needed": "0435",
-      "postal_code": "543543",
-      "points_per_job": "054",
-      "hours_expected": "0543",
-      "client_email": "543@25.com"
-    },
-    "4": {
-      "description": "453",
-      "categories": [
-        "transportation"
-      ],
-      "volunteers_needed": 343,
-      "postal_code": "rtrte",
-      "points_per_job": 435543,
-      "hours_expected": 453,
-      "client_email": "543@fes.com"
     }
   },
   "Volunteer": {
@@ -117,17 +95,6 @@
         "3"
       ],
       "Average_rating": "2"
-    },
-    "3": {
-      "volunteer_name": "dsgds",
-      "volunteer_email": "dsgds@dsgds.com",
-      "volunteer_password": "gdshfhfhf",
-      "volunteer_education": "dsgdsgd",
-      "volunteer_phone_number": "dsgdsg",
-      "volunteer_points": 0,
-      "volunteer_credentials_photo": "",
-      "what_jobs_they_enroll_in": [],
-      "average_rating": 0
     }
   }
 }
