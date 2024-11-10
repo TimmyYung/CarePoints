@@ -51,100 +51,43 @@ function appendVolunteerData(newVolunteerData) {
 }
 
 function appendJobData(newJobData) {
-  try {
-    const fileData = readFileSync(dataFilePath, "utf8");
-    const jsonData = JSON.parse(fileData);
+    try {
+        const fileData = readFileSync(dataFilePath, "utf8");
+        const jsonData = JSON.parse(fileData);
 
-    const newJobId = Object.keys(jsonData.Job_page).length + 1;
-    jsonData.Job_page[newJobId] = {
-      ...newJobData,
-      Client_email: newJobData.Client_email, // Ensure client email is included
-    };
+        const newJobId = Object.keys(jsonData.Job_page).length + 1;
+        jsonData.Job_page[newJobId] = {
+            ...newJobData,
+            Client_email: newJobData.client_email, // Ensure client email is included
+        };
 
-    writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
-    console.log("Job appended!");
-  } catch (error) {
-    console.log("ERROR APPENDING JOB", error);
-  }
+        writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
+        console.log("Job appended!");
+    } catch (error) {
+        console.log("ERROR APPENDING JOB", error);
+    }
 }
 
-// API endpoint to add a new client
-app.post('/add-client', (req, res) => {
-  const { client_name, client_email, client_phone_number, password, DOB, Emergency_Contact_Phone } = req.body;
-
-  if (!client_name || !client_email || !client_phone_number || !password || !DOB || !Emergency_Contact_Phone) {
-    return res.status(400).json({ error: 'All fields are required.' });
-  }
-
-  const newClientData = {
-    client_name,
-    client_email,
-    client_phone_number,
-    password,
-    DOB,
-    Emergency_Contact_Phone
-  };
-
-  appendClientData(newClientData);
-
-  res.status(200).json({ message: 'Client added!' });
-});
-
-app.post("/add-volunteer", (req, res) => {
-  const {
-    volunteer_name,
-    volunteer_email,
-    volunteer_password,
-    volunteer_education,
-    volunteer_phone_number,
-  } = req.body;
-
-  if (
-    !volunteer_name ||
-    !volunteer_email ||
-    !volunteer_password ||
-    !volunteer_phone_number
-  ) {
-    return res.status(400).json({ error: "All fields are required." });
-  }
-
-  const newVolunteerData = {
-    volunteer_name,
-    volunteer_email,
-    volunteer_password,
-    volunteer_education,
-    volunteer_phone_number,
-    volunteer_points: 0, // Default to 0
-    volunteer_credentials_photo: "", // Default empty string
-    what_jobs_they_enroll_in: [], // Default empty list
-    average_rating: 0, // Default to 0
-  };
-
-  appendVolunteerData(newVolunteerData);
-
-  res.status(200).json({ message: "Volunteer added!" });
-});
-
 app.post("/add-job", (req, res) => {
-  const { description, categories, volunteers_needed, postal_code, points_per_job, hours_expected, client_email } = req.body;
+    const { description, categories, volunteers_needed, postal_code, points_per_job, hours_expected, client_email } = req.body;
 
-  if (!description || !categories || !volunteers_needed || !postal_code || !points_per_job || !hours_expected || !client_email) {
-    return res.status(400).json({ error: "All fields are required." });
-  }
+    if (!description || !categories || !volunteers_needed || !postal_code || !points_per_job || !hours_expected || !client_email) {
+        return res.status(400).json({ error: "All fields are required." });
+    }
 
-  const newJobData = {
-    description,
-    categories,
-    volunteers_needed,
-    postal_code,
-    points_per_job,
-    hours_expected,
-    client_email
-  };
+    const newJobData = {
+        description,
+        categories,
+        volunteers_needed,
+        postal_code,
+        points_per_job,
+        hours_expected,
+        client_email
+    };
 
-  appendJobData(newJobData);
+    appendJobData(newJobData);
 
-  res.status(200).json({ message: "Job added!" });
+    res.status(200).json({ message: "Job added!" });
 });
 
 app.listen(port, () => {

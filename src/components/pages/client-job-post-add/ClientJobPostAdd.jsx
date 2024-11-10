@@ -22,13 +22,12 @@ const categories = [
     { value: 'housekeeping', label: 'Housekeeping and Homemaking' },
     { value: 'physical_therapy', label: 'Physical Therapy Exercises' },
     { value: 'health_monitor', label: 'Health Monitoring' },
-    { value: 'specialized_care', label: 'Specialized Dementia and Alzheimer’s Care' },
+    { value: 'specialized_care', label: 'Specialized Dementia and Alzheimer\'s Care' },
     { value: 'transportation', label: 'Transportation and Errand Services' },
     { value: 'nutritional_support', label: 'Nutritional Support and Dietary Assistance' }
 ];
 
-
-export default function ClientJobPostAdd(){
+export default function ClientJobPostAdd() {
     const [categoryError, setCategoryError] = useState(false);
     const [categoryErrorMessage, setCategoryErrorMessage] = useState('');
     const [postError, setPostError] = useState(false);
@@ -39,38 +38,23 @@ export default function ClientJobPostAdd(){
     const [serHourErrorMessage, setSerHourErrorMessage] = useState('');
     const [pointsError, setPointsError] = useState(false);
     const [pointsErrorMessage, setPointsErrorMessage] = useState('');
-
-    const [category, setCategory] = useState([]);
     const [notes, setNotes] = useState("");
+    const [category, setCategory] = useState([]);
     const [postCode, setPostCode] = useState("");
     const [volunteerNo, setVolunteerNo] = useState(0);
     const [serHour, setSerHour] = useState(0);
     const [points, setPoints] = useState(0);
 
-    const handleAddJob = async (e) => {
-        e.preventDefault();
-        if(categoryError || volunteerNoError || serHourError|| pointsError){
-            return;
-        }
-        console.log("success");
-    }
-
-    const handleCatgoryChange = (event) => {
+    const handleCategoryChange = (event) => {
         const {
           target: { value },
         } = event;
         setCategory(
           typeof value === 'string' ? value.split(',') : value,
         );
-      };
+    };
 
     const validateInputs = () => {
-        const category = document.getElementById('category');
-        const postal = document.getElementById('postCode');
-        const volunteerNo = document.getElementById('volunteerNo');
-        const serHour = document.getElementById('serHour');
-        const points = document.getElementById('points');
-
         let isValid = true;
 
         if (category.length === 0) {
@@ -82,7 +66,7 @@ export default function ClientJobPostAdd(){
             setCategoryErrorMessage('');
         }
 
-        if (!postal.value || !/^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/.test(postal.value)) {
+        if (!postCode || !/^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/.test(postCode)) {
             setPostError(true);
             setPostErrorMessage('Please enter a valid postal code.');
             isValid = false;
@@ -91,7 +75,7 @@ export default function ClientJobPostAdd(){
             setPostErrorMessage('');
         }
 
-        if (!volunteerNo.value || volunteerNo.value <= 0 ) {
+        if (!volunteerNo || volunteerNo <= 0) {
             setVolunteerNoError(true);
             setVolunteerNoErrorMessage('Number of volunteers needed must be greater than 0.');
             isValid = false;
@@ -119,11 +103,55 @@ export default function ClientJobPostAdd(){
         }
 
         return isValid;
-    }
+    };
+
+    const handleAddJob = async (e) => {
+        e.preventDefault();
+        
+        if (!validateInputs()) {
+            return;
+        }
+
+        const newJob = {
+            description: notes,
+            categories: category,
+            volunteers_needed: parseInt(volunteerNo, 10),
+            postal_code: postCode,
+            points_per_job: parseInt(points, 10),
+            hours_expected: parseInt(serHour, 10),
+            client_email: "test@test.com" // You'll need to get this from user session/auth
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/add-job", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newJob),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to add job");
+            }
+
+            // Clear input fields after successful submission
+            setCategory([]);
+            setNotes("");
+            setPostCode("");
+            setVolunteerNo(0);
+            setSerHour(0);
+            setPoints(0);
+
+            console.log("Job added successfully!");
+        } catch (error) {
+            console.error("Error adding job:", error);
+        }
+    };
 
     return (
         <div>
-             <Box sx={{  display: 'flex', flexDirection: 'column', padding: 5, paddingTop: 3}}>
+            <Box sx={{  display: 'flex', flexDirection: 'column', padding: 5, paddingTop: 3}}>
                 <Box sx={{  display: 'flex', flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center'}}>
                     <IconButton aria-label="home" color="primary" href="/client/job-post" size="large">
                         <HomeIcon fontSize="inherit"/>
@@ -152,7 +180,7 @@ export default function ClientJobPostAdd(){
                             multiple
                             required
                             value={category}
-                            onChange={handleCatgoryChange}
+                            onChange={handleCategoryChange}
                             input={<OutlinedInput label="Tag" />}
                             renderValue={(selected) => 
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -161,7 +189,6 @@ export default function ClientJobPostAdd(){
                                     ))}
                                 </Box>
                             }
-                            
                             MenuProps={MenuProps}
                         >
                             {categories.map((option) => (
@@ -201,6 +228,8 @@ export default function ClientJobPostAdd(){
                             required
                             variant="outlined"
                             color="primary"
+                            value={postCode}
+                            onChange={(e) => setPostCode(e.target.value)}
                             aria-label="Postal Code"
                         />
                     </FormControl>
@@ -257,11 +286,11 @@ export default function ClientJobPostAdd(){
                             />
                         </FormControl>
                     </Box>
-                    <Button type="submit" variant="contained" onClick={validateInputs} sx={{width: '30%', alignSelf: 'center', padding: 1 }}>
+                    <Button type="submit" variant="contained" sx={{width: '30%', alignSelf: 'center', padding: 1 }}>
                         Add Job Request
                     </Button>
                 </Box>
-             </Box>
+            </Box>
         </div>
     );
 }
