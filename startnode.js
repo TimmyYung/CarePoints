@@ -60,9 +60,9 @@ function appendJobData(newJobData) {
 
 // API endpoint to add a new client
 app.post('/add-client', (req, res) => {
-    const { client_name, password, client_email, client_phone_number } = req.body;
+    const { client_name, password, client_email, client_phone_number, DOB, Emergency_Contact_Phone} = req.body;
 
-    if (!client_name || !password || !client_email || !client_phone_number) {
+    if (!client_name || !password || !client_email || !client_phone_number || !DOB || !Emergency_Contact_Phone) {
         return res.status(400).json({ error: 'All fields are required.' });
     }
 
@@ -70,7 +70,9 @@ app.post('/add-client', (req, res) => {
         client_name,
         password,
         client_email,
-        client_phone_number
+        client_phone_number,
+        DOB,
+        Emergency_Contact_Phone
     };
 
     // Append the new client data
