@@ -9,7 +9,7 @@ const VolunteerAchievements = () => {
         <div id="volunteer-achievements">
             <h1>{exampleData.name}</h1>
             <hr/>
-            <h2>My points: {exampleData.points}</h2>
+            <h2>CarePoints: {exampleData.points}</h2>
             <h2>My rating: <span id="gold-star">{exampleData.rating} / 5</span></h2>
             <h2>Total number of jobs: {exampleData.totalJobs}</h2>
         </div>

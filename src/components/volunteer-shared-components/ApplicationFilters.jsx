@@ -96,10 +96,10 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
     } 
 
     return (
-        <div style={{display:"flex", flexDirection: "row", alignItems: "center", gap: "10px"}}>
+        <div style={{display:"flex", flexDirection: "row", alignItems: "center", gap: "10px", backgroundColor:"white"}}>
             {/* <button style={{fontSize:"20px", padding:"5px", borderRadius:"5px", border:"none", margin:"5px", cursor:"pointer"}} onClick={() =>{if(defaultSort == "Closest") setDefaultSort("Points"); else setDefaultSort("Closest")}}>Sort by: {defaultSort}</button> */}
             <div style={{position:"relative"}}>
-                <div style={{fontSize:"20px", padding:"5px", margin:"5px", cursor:"pointer"}} onClick={() => setFilterOpen(!filterOpen)}>Categories</div>
+                <div style={{fontSize:"20px", margin:"5px", cursor:"pointer", backgroundColor:"transparent"}} onClick={() => setFilterOpen(!filterOpen)}>Categories</div>
                 <div style={{position:"absolute", zIndex:"1000", background:"white", padding:"5px", fontSize:"20px", width:"350px"}}>
                     {filterOpen && filters.map((filter, i) => 
                         <div onClick={() => handleFilterClick(i)} key={i} style={{display:"flex", justifyContent:"space-between"}}>
@@ -112,6 +112,7 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
                 </div>
             </div>
             <TextField
+                style={{width:"20%"}}
                 id="postCode"
                 type="text"
                 name="postCode"
@@ -125,7 +126,7 @@ const ApplicationFilters = ({fullData, setDisplayData}) => {
                 onChange={(e) => {setCurrPostCode(e.target.value)}}
                 size="small"
             />
-            <Button variant='contained' onClick={handlePostFilter}>Search by Closeness</Button>
+            <Button variant='contained' onClick={handlePostFilter} style={{fontFamily:"pixel", padding:"-10px -10px"}}>Search by Proximity</Button>
         </div>
     )
 }

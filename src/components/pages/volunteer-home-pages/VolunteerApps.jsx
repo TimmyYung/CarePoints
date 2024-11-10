@@ -9,14 +9,14 @@ const CaretakerApps = ({data}) => {
             </div>
             <p>Postal Code: {data.postal}</p><br/>
 
-            <div className="volunteer-app-categories">Categories:{data.categories.map((cat, i) => {
+            <div className="volunteer-app-categories" style={{fontWeight:"thin"}}>Categories:{data.categories.map((cat, i) => {
                 return (<button key={i} disabled className="volunteer-find-client-button">{cat}</button>)
             })}</div>
             <br/>
             <div>Volunteers Needed: {data.volunteersNeeded}</div>
             <br/>
             <div>Notes: {data.notes}</div>
-            <Button style={{fontFamily:"pixel", background:"rgb(151, 174, 242)", border:"1px solid blue", borderRadius:"0"}}>Apply</Button>
+            <Button style={{background:"#D6E7FA", border:"1px solid blue", borderRadius:"0"}}>Apply</Button>
         </div>
     )
 }

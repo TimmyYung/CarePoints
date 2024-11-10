@@ -150,7 +150,11 @@ export default function ClientJobPostAdd() {
     };
 
     return (
-        <div>
+        <div style={{
+            backgroundImage: "url('riverbg.png')",
+          backgroundRepeat:"no-repeat",
+          backgroundSize: "cover"
+          }}>
             <Box sx={{  display: 'flex', flexDirection: 'column', padding: 5, paddingTop: 3}}>
                 <Box sx={{  display: 'flex', flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center'}}>
                     <IconButton aria-label="home" color="primary" href="/client/job-post" size="large">

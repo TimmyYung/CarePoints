@@ -19,7 +19,7 @@ const CaretakerViewApps = () => {
     const [app, setApp] = useState(0);
 
     return (
-        <>
+        <div style={{backgroundColor:"#AFCFF2", height:'100%'}}>
             <CaretakerNavbar currentSelected={0}/>
             <div className="caretaker-navbar">
                 {app == 0 && <button disabled>Current Applications</button>}
@@ -37,7 +37,7 @@ const CaretakerViewApps = () => {
                     <CaretakerApps data={patient} key={i}/>
                 )}
             </div>
-        </>
+        </div>
     )
 }
 export default CaretakerViewApps;
