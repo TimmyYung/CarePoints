@@ -8,9 +8,9 @@ const HomePage = () => {
     const [selection, setSelection] = useState(0);
     const handleCaretakerClick = () => {
         if(selection == "1")
-            window.location = "../caretaker-sign-up";
+            window.location = "../volunteer/sign-up";
         else
-            window.location = "../caretaker-login";
+            window.location = "../volunteer/login";
     }
     return (
         <div id="home-page">

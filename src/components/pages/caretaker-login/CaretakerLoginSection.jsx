@@ -12,7 +12,7 @@ const CaretakerLoginSection = () => {
     const [loginAttempted, setLoginAttempted] = useState(false);
     const handleLogin = () => {
         if(email != "" && password != "")
-            window.location = "../caretaker-find-clients";
+            window.location = "../volunteer/find-clients";
         setLoginAttempted(true);
     }
     return (
