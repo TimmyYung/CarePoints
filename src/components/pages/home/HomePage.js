@@ -26,20 +26,22 @@ const HomePage = () => {
             <h2 id="home-cont">I want to...</h2>
             {selection == 0 && <div id="home-buttons">
                 <Button id="home-sign-up" variant="contained" onClick={() => setSelection(1)}>Sign Up</Button>
-                <Button variant="contained" onClick={() => setSelection(2)}>Login</Button>
+                <Button variant="contained" id="home-login" onClick={() => setSelection(2)}>Login</Button>
             </div>}
             {/* if sign up is selected */}
             {selection == 1 && <div id="home-buttons">
-                <Button id="home-sign-up" variant="contained">Sign Up</Button>
+                <Button id="home-sign-up" disabled>Sign Up</Button>
                 <Button id="home-login" variant="outlined" onClick={() => setSelection(2)}>Login</Button>
             </div>}
             {/* if login is selected */}
             {selection == 2 && <div id="home-buttons">
                 <Button id="home-sign-up" variant="outlined" onClick={() => setSelection(1)}>Sign Up</Button>
-                <Button id="home-login" variant="contained">Login</Button>
+                <Button id="home-login" disabled>Login</Button>
             </div>}
             {selection != 0 && <div>
+                <br/>
                 <hr/>
+                <br/>
                 {selection == 1 && <h2>I am signing up as a...</h2>}
                 {selection == 2 && <h2>I am logging in as a...</h2>}
                 <div>

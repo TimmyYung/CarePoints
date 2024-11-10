@@ -19,7 +19,7 @@ const CaretakerNavbar = ({currentSelected}) => {
             {currentSelected == 2 && <button disabled>Edit Profile</button>}
 
             {currentSelected != 3 && <button onClick={() => changeRoute("achievements")}>Achievements</button>}
-            {currentSelected == 3 && <button disabled>Edit Profile</button>}
+            {currentSelected == 3 && <button disabled>Achievements</button>}
 
             <button onClick={handleSignOut}>Sign Out</button>
 

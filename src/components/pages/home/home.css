@@ -18,10 +18,33 @@
      margin: 30px 0;
      font-weight: normal;
 }
+
 #home-sign-up {
-    color: #0D0D33;
+    background-color: #0D0D33;
     margin-right: 20px;
-}
-#home-login {
     color: #014EAF;
+}
+#home-sign-up:not([disabled]) {
+    color: white;
+    margin-right: 20px;
+    transition: 0.5s ease all;
+}
+#home-sign-up:not([disabled]):hover {
+    padding: 7px 17px;
+    font-size: 15px;
+    transition: 0.5s ease all;
+}
+
+#home-login {
+    background-color: #014EAF;
+    color: #0D0D33;
+}
+#home-login:not([disabled]) {
+    color: white;
+    transition: 0.5s ease all;
+}
+#home-login:not([disabled]):hover {
+    padding: 7px 17px;
+    font-size: 15px;
+    transition: 0.5s ease all;
 }

@@ -1,4 +1,25 @@
 #volunteer-achievements {
     text-align: center;
-    border: 1px solid red;
+    margin: 100px;
+}
+#volunteer-achievements > h1 {
+    font-size: 75px;
+    transition: 5s ease all;
+}
+#volunteer-achievements > h1:hover {
+    font-size: 100px;
+    color: white;
+    transition: 5s ease all;
+}
+#volunteer-achievements > h2 {
+    margin: 20px;
+}
+#gold-star {
+    transition: 5s ease all;
+}
+#gold-star:hover {
+    color: gold;
+    text-shadow: 0 0 20px red;
+    font-size: 50px;
+    transition: 5s ease all;
 }
