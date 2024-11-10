@@ -2,7 +2,7 @@
 import TextField from "@mui/material/TextField";
 import "./CaretakerSignUp.css";
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CaretakerSignUp = ({signup}) => {
     const [nameError, setNameError] = useState(false);
