@@ -3,10 +3,10 @@
     flex-direction: column;
     width: 48%;
     justify-content: space-between;
-    background-color: rgb(221, 225, 239);
-    border-radius: 10px;
+    background-color: rgb(180, 220, 246);
     margin: 10px;
     padding: 20px;
+    color: rgb(8, 8, 209);
 }
 .volunteer-application > div {
     display: flex;

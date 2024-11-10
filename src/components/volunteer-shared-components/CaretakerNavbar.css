@@ -8,10 +8,35 @@
     display: flex;
 }
 .caretaker-navbar > button {
+    background-color: rgb(170, 199, 252);
     font-family: "pixel";
     width: 100%;
     border: none;
     font-size: 20px;
     padding: 20px;
     text-align: center;
+    cursor: pointer;
+    color: blue;
+    transition: 0.5s ease all;
+}
+.caretaker-navbar > button:hover {
+    background-color: rgb(213, 230, 243);
+    font-family: "pixel";
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+.caretaker-navbar > button:disabled {
+    background-color: rgb(213, 230, 243);
+    font-family: "pixel";
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: default;
 }
