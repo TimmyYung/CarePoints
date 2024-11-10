@@ -19,11 +19,11 @@ export default function ClientJobPost(){
                 >
                     Your Posted Jobs
                 </Typography>
-                <Button variant='contained' color="primary" href="/job-post-add" sx={{marginLeft: 'auto', marginRight: 0}}>
+                <Button variant='contained' color="primary" href="/client/job-post-add" sx={{marginLeft: 'auto', marginRight: 0}}>
                     Add Job Request
                 </Button>
-                
             </Box>
         </Box>
-    </div>);
+    </div>
+    );
 }
