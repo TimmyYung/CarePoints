@@ -277,12 +277,12 @@ const CaretakerSignUp = ({signup}) => {
                     <br/><br/>
                     {signup && <>
                         <label htmlFor="caretaker-id" style={{color:"white", fontFamily:"helvetica", fontSize:"20px"}}>Photo ID:</label>
-                        <input required style={{fontSize:"20px"}} required id="caretaker-id" type="file" accept="image/*" />
+                        <input required style={{fontSize:"20px"}}  id="caretaker-id" type="file" accept="image/*" />
                         <br/><br/>
                     </>}
                     {signup && <>
                         <label htmlFor="caretaker-license" style={{color:"white", fontFamily:"helvetica", fontSize:"20px"}}>Photo of medical license:</label>
-                        <input required style={{fontSize:"20px"}}  required id="caretaker-id" type="file" accept="image/*" />
+                        <input required style={{fontSize:"20px"}}   id="caretaker-id" type="file" accept="image/*" />
                         <br/><br/>
                     </>}
                     <TextField                      style={{backgroundColor:"white", marginTop:"-10px", borderRadius:"10px"}}
