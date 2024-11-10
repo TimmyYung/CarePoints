@@ -15,7 +15,6 @@ const dataFilePath = path.join(
 );
 
 function appendClientData(newClientData) {
-<<<<<<< HEAD
   try {
     const fileData = readFileSync(dataFilePath, "utf8");
     const jsonData = JSON.parse(fileData);
@@ -25,34 +24,13 @@ function appendClientData(newClientData) {
       password: newClientData.password,
       client_email: newClientData.client_email,
       client_phone_number: newClientData.client_phone_number,
-      DOB: newClientData.DOB, 
-      Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone, 
+      DOB: newClientData.DOB,
+      Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone,
     };
     writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
     console.log("It appended!");
   } catch (error) {
     console.log("ERROR APPENDING PLZ HELP", error);
-=======
-    try {
-      const fileData = readFileSync(dataFilePath, "utf8");
-      const jsonData = JSON.parse(fileData);
-  
-      const newClientId = Object.keys(jsonData.client).length + 1;
-      jsonData.client[newClientId] = {
-        client_name: newClientData.client_name,
-        password: newClientData.password,
-        client_email: newClientData.client_email,
-        client_phone_number: newClientData.client_phone_number,
-        DOB: newClientData.DOB,
-        Emergency_Contact_Phone: newClientData.Emergency_Contact_Phone 
-      };
-  
-      writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), "utf8");
-      console.log("It appended!");
-    } catch (error) {
-      console.log("ERROR APPENDING PLZ HELP", error);
-    }
->>>>>>> 38d127ab62bea12bb99a330845bc79c78e154202
   }
 }
 
@@ -157,10 +135,10 @@ app.post("/add-job", (req, res) => {
   const newJobData = {
     description,
     categories,
-    volunteers_needed: parseInt(volunteers_needed, 10),
+    volunteers_needed,
     postal_code,
-    points_per_job: parseInt(points_per_job, 10),
-    hours_expected: parseInt(hours_expected, 10),
+    points_per_job,
+    hours_expected,
     client_email
   };
 
@@ -170,5 +148,5 @@ app.post("/add-job", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
