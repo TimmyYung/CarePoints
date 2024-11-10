@@ -69,7 +69,21 @@ export default function ClientLogin () {
     };
     return (
         <div>
-            <Box style={{ backgroundImage: `url(${Image.src})`, backgroundSize: "cover", height: "100vh" }}>
+            <Box
+                    style={{
+                        backgroundImage: `url(${Image.src})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        opacity: 0.7,  
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: -1,  
+                    }}
+                />
+            <Box style={{ position: 'relative', zIndex: 1, padding: '20px' }}>
                 <Typography
                     component="h1"
                     variant="h4"
