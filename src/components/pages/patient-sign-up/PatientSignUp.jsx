@@ -18,6 +18,8 @@ export default function PatientSignUp (){
     const [newClientEmail, setNewClientEmail] = useState('');
     const [newClientPhoneNumber, setNewClientPhoneNumber] = useState('');
     const [newClientPassword, setNewClientPassword] = useState('');
+    const [newDOB, setNewDOB] = useState('');
+    const [newEmergencyContact, setNewEmergencyContact] = useState('');
   
     useEffect(() => {
         fetch('/api/timtest') // assuming you have an endpoint set up at this URL
@@ -38,12 +40,14 @@ export default function PatientSignUp (){
       const handleNewClient = async (e) => {
         e.preventDefault();
     
-        if (newClientName && newClientEmail && newClientPhoneNumber && newClientPassword) {
+        if (newClientName && newClientEmail && newClientPhoneNumber && newClientPassword && newDOB && newEmergencyContact) {
           const newClient = {
             client_name: newClientName,
             client_email: newClientEmail,
             client_phone_number: newClientPhoneNumber,
             password: newClientPassword,
+            DOB: newDOB,
+            Emergency_Contact_Phone: newEmergencyContact,
           };
     
           try {
@@ -65,6 +69,8 @@ export default function PatientSignUp (){
             setNewClientEmail('');
             setNewClientPhoneNumber('');
             setNewClientPassword('');
+            setNewDOB('');
+            setNewEmergencyContact('');
     
             // Optionally refetch or update state with new client list
             fetch('/api/timtest')
