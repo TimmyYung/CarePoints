@@ -178,6 +178,7 @@ export default function ClientJobPostAdd() {
                     <FormControl error={categoryError}>
                         <FormLabel htmlFor="category">Category</FormLabel>
                         <Select
+                        style={{ backgroundColor:"white" }}
                             id="category"
                             multiple
                             required
@@ -211,7 +212,7 @@ export default function ClientJobPostAdd() {
                             placeholder="Enter any extra information"
                             variant="outlined"
                             color={'primary'}
-                            sx={{ ariaLabel: 'Notes' }}
+                            sx={{ ariaLabel: 'Notes', backgroundColor:"white" }}
                             value={notes}
                             onChange={(e) => setNotes(e.target.value)}
                         />
@@ -219,6 +220,7 @@ export default function ClientJobPostAdd() {
                     <FormControl>
                         <FormLabel htmlFor="postCode">Where Service is Needed (Postal Code)</FormLabel>
                         <TextField
+                        style={{ backgroundColor:"white" }}
                             error={postError}
                             helperText={postErrorMessage}
                             id="postCode"
@@ -239,6 +241,7 @@ export default function ClientJobPostAdd() {
                         <FormControl sx={{ flex: 1 }}>
                             <FormLabel htmlFor="volunteerNo">Number of Volunteers Needed</FormLabel>
                             <TextField
+                            style={{ backgroundColor:"white" }}
                                 id="volunteerNo"
                                 error={volunteerNoError}
                                 helperText={volunteerNoErrorMessage}
@@ -256,6 +259,7 @@ export default function ClientJobPostAdd() {
                         <FormControl sx={{ flex: 1 }}>
                             <FormLabel htmlFor="serHour">Hours of Service Needed</FormLabel>
                             <TextField
+                            style={{ backgroundColor:"white" }}
                                 id="serHour"
                                 error={serHourError}
                                 helperText={serHourErrorMessage}
