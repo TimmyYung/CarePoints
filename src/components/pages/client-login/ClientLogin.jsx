@@ -7,8 +7,11 @@ import { Box, Button, Typography, FormControl, FormLabel, TextField, Link} from 
 import { useRouter } from 'next/navigation';
 import Linking from 'next/link';
 import clientData from '/src/app/(routes)/timtest/data.json';
+import Image from '../../riverbg.png';
 
-export default function ClientLogin (){
+
+
+export default function ClientLogin () {
     const router = useRouter();
     const [emailError, setEmailError] = useState(false);
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
@@ -66,69 +69,72 @@ export default function ClientLogin (){
     };
     return (
         <div>
-            <Typography
-                component="h1"
-                variant="h4"
-                sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel", paddingLeft: 5, paddingTop: 10, paddingBottom: 2 }}
-            >
-                Login
-            </Typography>
-            <Box
-                component="form"
-                onSubmit={handleLogin}
-                noValidate
-                sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
-            >
-                <FormControl>
-                    <FormLabel htmlFor="email">Email</FormLabel>
-                    <TextField
-                        error={emailError}
-                        helperText={emailErrorMessage}
-                        id="email"
-                        type="email"
-                        name="email"
-                        placeholder="your@email.com"
-                        autoComplete="email"
-                        autoFocus
-                        required
-                        fullWidth
-                        variant="outlined"
-                        color={'primary'}
-                        sx={{ ariaLabel: 'Email' }}
-                        value={email} 
-                        onChange={(e) => setEmail(e.target.value)} 
-                    />
-                </FormControl>
-                <FormControl>
-                    <FormLabel htmlFor="password">Password</FormLabel>
-                    <TextField
-                        error={passwordError}
-                        helperText={passwordErrorMessage}
-                        name="password"
-                        placeholder="••••••"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        autoFocus
-                        required
-                        fullWidth
-                        variant="outlined"
-                        color={'primary'}
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                    />
-                </FormControl>
-                <Link
-                    component="button"
-                    type="button"
-                    variant="body2"
-                    sx={{ alignSelf: 'baseline', fontFamily:"pixel" }}
-                    >
-                    <Linking href="/client/sign-up">Don't have an account?</Linking>
-                </Link>
-                <Button type="submit" fullWidth variant="contained" onClick={validateInputs} style={{fontFamily:"pixel"}}>
+            <Box style={{ backgroundImage: `url(${Image.src})`, backgroundSize: "cover", height: "100vh" }}>
+                <Typography
+                    component="h1"
+                    variant="h4"
+                    sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', fontFamily:"pixel", paddingLeft: 5, paddingTop: 10, paddingBottom: 2 }}
+                >
                     Login
-                </Button>
+                </Typography>
+                <Box
+                    component="form"
+                    onSubmit={handleLogin}
+                    noValidate
+                    sx={{ display: 'flex', flexDirection: 'column', width: '50%', gap: 2, padding: 5, paddingTop: 0 }}
+                >
+                    <FormControl>
+                        <FormLabel htmlFor="email">Email</FormLabel>
+                        <TextField
+                            error={emailError}
+                            helperText={emailErrorMessage}
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            autoComplete="email"
+                            autoFocus
+                            required
+                            fullWidth
+                            variant="outlined"
+                            color={'primary'}
+                            sx={{ ariaLabel: 'Email', backgroundColor: 'white', borderRadius: 2 }}
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel htmlFor="password">Password</FormLabel>
+                        <TextField
+                            error={passwordError}
+                            helperText={passwordErrorMessage}
+                            name="password"
+                            placeholder="••••••"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            autoFocus
+                            required
+                            fullWidth
+                            variant="outlined"
+                            color={'primary'}
+                            value={password} 
+                            sx={{ ariaLabel: 'Email', backgroundColor: 'white', borderRadius: 2 }}
+                            onChange={(e) => setPassword(e.target.value)} 
+                        />
+                    </FormControl>
+                    <Link
+                        component="button"
+                        type="button"
+                        variant="body2"
+                        sx={{ alignSelf: 'baseline', fontFamily:"pixel" }}
+                        >
+                        <Linking href="/client/sign-up">Don't have an account?</Linking>
+                    </Link>
+                    <Button type="submit" fullWidth variant="contained" onClick={validateInputs} style={{fontFamily:"pixel"}}>
+                        Login
+                    </Button>
+                </Box>
             </Box>
         </div>
     );
