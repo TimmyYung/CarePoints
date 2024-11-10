@@ -1,0 +1,20 @@
+.volunteer-application {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: 5px solid grey;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+}
+.volunteer-application > div {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: 20px;
+    margin: 2px;
+}
+.volunteer-app-categories {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,4 +1,4 @@
-import CaretakerApps from "./CaretakerApps"
+import CaretakerApps from "./VolunteerApps"
 
 const { default: CaretakerNavbar } = require("../../caretaker-shared-components/CaretakerNavbar")
 
