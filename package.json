@@ -9,11 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.6",
-    "@mui/material-nextjs": "^6.1.6",
+    "@vis.gl/react-google-maps": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "next": "15.0.3",
