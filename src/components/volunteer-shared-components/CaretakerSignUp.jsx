@@ -9,6 +9,7 @@ const CaretakerSignUp = ({signup}) => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
+    const [postal, setPostal] = useState("");
 
     const [edu, setEdu] = useState("");
     const [exp, setExp] = useState("");
@@ -40,6 +41,8 @@ const CaretakerSignUp = ({signup}) => {
                     <TextField label="Phone Number:" id="caretaker-phone" onChange={(e) => {setPhone(e.target.value)}}/>
                     <br/>
                     <TextField label="Password:" id="caretaker-password" onChange={(e) => {setPassword(e.target.value)}}/>
+                    <br/>
+                    <TextField label="Postal Code:" onChange={(e) => {setPostal(e.target.value)}}/>
                 </div>
                 <div>
                     <TextField label="Education:" id="caretaker-edu" onChange={(e) => setEdu(e.target.value)}/>
@@ -72,6 +75,11 @@ const CaretakerSignUp = ({signup}) => {
                     <br/>
                     {password != "" && <TextField label="Password:" id="caretaker-password" onChange={(e) => {setPassword(e.target.value)}}/>}
                     {password == "" && <TextField label="Password:" error helperText="Must not be empty" id="caretaker-password" onChange={(e) => {setPassword(e.target.value)}}/>}
+
+                    <br/>
+                    {postal != "" && <TextField label="Postal Code:" onChange={(e) => {setPostal(e.target.value)}}/>}
+                    {postal == "" && <TextField error helperText="Must not be empty" label="Postal Code:" onChange={(e) => {setPostal(e.target.value)}}/>}
+
 
                 </div>
                 <div>

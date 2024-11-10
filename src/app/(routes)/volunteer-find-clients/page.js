@@ -1,6 +1,8 @@
 
 // import { Metadata } from "next";
-import CaretakerViewApps from "@/components/pages/volunteer-home-pages/CaretakerViewApps";
+
+import CaretakerFindClients from "@/components/pages/caretaker-home-pages/VolunteerFindClients";
+
 // export const metadata: Metadata = {
 //   title: "Achievements",
 //   description: "Page to earn and view achievements",
@@ -8,7 +10,9 @@ import CaretakerViewApps from "@/components/pages/volunteer-home-pages/Caretaker
 
 const homePage = () => {
     return (
-        <CaretakerViewApps/>
+      <>
+        <CaretakerFindClients/>
+      </>
     );
   };
 
