@@ -9,7 +9,13 @@ const TimTest = () => {
   const [newClientEmail, setNewClientEmail] = useState('');
   const [newClientPhoneNumber, setNewClientPhoneNumber] = useState('');
   const [newClientPassword, setNewClientPassword] = useState('');
-
+  const [newVolunteerName, setNewVolunteerName] = useState('');
+  const [newVolunteerEmail, setNewVolunteerEmail] = useState('');
+  const [newVolunteerPassword, setNewVolunteerPassword] = useState('');
+  const [newVolunteerEducation, setNewVolunteerEducation] = useState('');
+  const [newVolunteerPhoneNumber, setNewVolunteerPhoneNumber] = useState('');
+  const [newJobServiceName, setNewJobServiceName] = useState('');
+  const [newJobDescription, setNewJobDescription] = useState('');
 
   useEffect(() => {
     fetch('/api/timtest') // assuming you have an endpoint set up at this URL
@@ -66,6 +72,86 @@ const TimTest = () => {
         
       } catch (error) {
         console.error('Error adding client:', error);
+      }
+    }
+  };
+
+  const handleAddVolunteer = async (e) => {
+    e.preventDefault();
+  
+    if (newVolunteerName && newVolunteerEmail && newVolunteerPassword && newVolunteerPhoneNumber) {
+      const newVolunteer = {
+        volunteer_name: newVolunteerName,
+        volunteer_email: newVolunteerEmail,
+        volunteer_password: newVolunteerPassword,
+        volunteer_education: newVolunteerEducation,
+        volunteer_phone_number: newVolunteerPhoneNumber,
+        volunteer_points: 0,
+        volunteer_credentials_photo: "",
+        what_jobs_they_enroll_in: [],
+        average_rating: 0
+      };
+  
+      try {
+        const response = await fetch('http://localhost:5000/add-volunteer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newVolunteer),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to add volunteer');
+        }
+  
+        setNewVolunteerName('');
+        setNewVolunteerEmail('');
+        setNewVolunteerPassword('');
+        setNewVolunteerEducation('');
+        setNewVolunteerPhoneNumber('');
+  
+        fetch('/api/timtest')
+          .then((response) => response.json())
+          .then((jsonData) => setData(jsonData));
+        
+      } catch (error) {
+        console.error('Error adding volunteer:', error);
+      }
+    }
+  };
+
+  const handleAddJob = async (e) => {
+    e.preventDefault();
+
+    if (newJobServiceName && newJobDescription) {
+      const newJob = {
+        service_name: newJobServiceName,
+        description: newJobDescription,
+      };
+
+      try {
+        const response = await fetch('http://localhost:5000/add-job', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newJob),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add job');
+        }
+
+        setNewJobServiceName('');
+        setNewJobDescription('');
+
+        fetch('/api/timtest')
+          .then((response) => response.json())
+          .then((jsonData) => setData(jsonData));
+        
+      } catch (error) {
+        console.error('Error adding job:', error);
       }
     }
   };
@@ -138,10 +224,85 @@ const TimTest = () => {
       </form>
 
       {/* Form to add a volunteer */}
-
-
+      <form onSubmit={handleAddVolunteer}>
+        <h2>Add New Volunteer</h2>
+        <label>
+          Name:
+          <input
+            type="text"
+            value={newVolunteerName}
+            onChange={(e) => setNewVolunteerName(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input
+            type="email"
+            value={newVolunteerEmail}
+            onChange={(e) => setNewVolunteerEmail(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            value={newVolunteerPassword}
+            onChange={(e) => setNewVolunteerPassword(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Education:
+          <input
+            type="text"
+            value={newVolunteerEducation}
+            onChange={(e) => setNewVolunteerEducation(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Phone Number:
+          <input
+            type="text"
+            value={newVolunteerPhoneNumber}
+            onChange={(e) => setNewVolunteerPhoneNumber(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <button type="submit">Add Volunteer</button>
+      </form>
 
       {/* Form to add job postings */}
+      <form onSubmit={handleAddJob}>
+        <h2>Add New Job</h2>
+        <label>
+          Service Name:
+          <input
+            type="text"
+            value={newJobServiceName}
+            onChange={(e) => setNewJobServiceName(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Description:
+          <input
+            type="text"
+            value={newJobDescription}
+            onChange={(e) => setNewJobDescription(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <button type="submit">Add Job</button>
+      </form>
     </div>
   );
 };

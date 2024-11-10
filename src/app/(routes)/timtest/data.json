@@ -1,89 +1,108 @@
 {
-  "client": {
-    "1": {
-      "client_name": "Evelyn",
-      "password": "pass1",
-      "client_email": "client1@example.com",
-      "client_phone_number": "555-0101"
+    "client": {
+      "1": {
+        "client_name": "Evelyn",
+        "password": "pass1",
+        "client_email": "client1@example.com",
+        "client_phone_number": "555-0101",
+        "DOB": "2000-01-01",
+        "Emergency_Contact_Phone": "123-456-7890"
+      },
+      "2": {
+        "client_name": "Bob",
+        "password": "pass2",
+        "client_email": "client2@example.com",
+        "client_phone_number": "555-0102",
+        "DOB": "1999-12-31",
+        "Emergency_Contact_Phone": "212-345-6789"
+      },
+      "3": {
+        "client_name": "Alice",
+        "password": "pass3",
+        "client_email": "client3@example.com",
+        "client_phone_number": "555-0103",
+        "DOB": "2001-02-28",
+        "Emergency_Contact_Phone": "312-456-7890"
+      },
+      "4": {
+        "client_name": "Diana",
+        "password": "pass4",
+        "client_email": "client4@example.com",
+        "client_phone_number": "555-0104",
+        "DOB": "1982-12-31",
+        "Emergency_Contact_Phone": "414-456-7890"
+      },
+      "5": {
+        "client_name": "Charlie",
+        "password": "pass5",
+        "client_email": "client5@example.com",
+        "client_phone_number": "555-0105",
+        "DOB": "1994-12-31",
+        "Emergency_Contact_Phone": "714-456-7890"
+      }
     },
-    "2": {
-      "client_name": "Bob",
-      "password": "pass2",
-      "client_email": "client2@example.com",
-      "client_phone_number": "555-0102"
+    "Job_page": {
+      "1": {
+        "Categories": [
+          "Bathing",
+          "Cleaning"
+        ],
+        "Description": "Assistance with safe entry and exit from the bath or shower, and thorough cleaning.",
+        "Volunteers_Needed": 5,
+        "postal_code": "L2J 2J2",
+        "Points_per_job": 11,
+        "Hours_Expected": 3
+      },
+      "2": {
+        "Categories": [
+          "Dressing",
+          "Cleaning"
+        ],
+        "Description": "I need to be dressed.",
+        "Volunteers_Needed": 9,
+        "postal_code": "H3H 3H3",
+        "Points_per_job": 44,
+        "Hours_Expected": 8
+      },
+      "3": {
+        "Categories": [
+          "Errand",
+          "Socializing"
+        ],
+        "Description": "Do stuff for me.",
+        "Volunteers_Needed": 10,
+        "postal_code": "A1A 1A1",
+        "Points_per_job": 32,
+        "Hours_Expected": 4
+      }
     },
-    "3": {
-      "client_name": "Alice",
-      "password": "pass3",
-      "client_email": "client3@example.com",
-      "client_phone_number": "555-0103"
-    },
-    "4": {
-      "client_name": "Diana",
-      "password": "pass4",
-      "client_email": "client4@example.com",
-      "client_phone_number": "555-0104"
-    },
-    "5": {
-      "client_name": "Charlie",
-      "password": "pass5",
-      "client_email": "client5@example.com",
-      "client_phone_number": "555-0105"
-    }
-  },
-  "Job_page": {
-    "1": {
-      "Service_Name": "Cleaning",
-      "Description": "Help needed with cleaning tasks.",
-      "Volunteers_Needed": 5,
-      "Points_per_job": 11,
-      "Hours_Expected": 3,
-      "Notes": "Flexible hours available."
-    },
-    "2": {
-      "Service_Name": "Delivery",
-      "Description": "Deliver packages promptly.",
-      "Volunteers_Needed": 9,
-      "Points_per_job": 44,
-      "Hours_Expected": 8,
-      "Notes": "Immediate start."
-    },
-    "3": {
-      "Service_Name": "Tutoring",
-      "Description": "Tutoring in various subjects.",
-      "Volunteers_Needed": 10,
-      "Points_per_job": 32,
-      "Hours_Expected": 4,
-      "Notes": "Need experienced volunteers."
-    }
-  },
-  "Volunteer": {
-    "1": {
-      "Volunteer_name": "Volunteer 1",
-      "Volunteer_password": "volunteer1",
-      "Volunteer_education": "Education Level 1",
-      "Volunteer_phone_number": "555-21",
-      "Volunteer_email": "volunteer1@example.com",
-      "Volunteer_points": 10,
-      "Volunteer_credentials_photo": ".",
-      "What_jobs_they_enroll_in": [
-        "1",
-        "2"
-      ],
-      "Average_rating": "4.5"
-    },
-    "2": {
-      "Volunteer_name": "Volunteer 2",
-      "Volunteer_password": "volunteer2",
-      "Volunteer_education": "Education Level 2",
-      "Volunteer_phone_number": "555-22",
-      "Volunteer_email": "volunteer2@example.com",
-      "Volunteer_points": 15,
-      "Volunteer_credentials_photo": "",
-      "What_jobs_they_enroll_in": [
-        "1",
-        "3"
-      ]
+    "Volunteer": {
+      "1": {
+        "Volunteer_name": "Volunteer 1",
+        "Volunteer_password": "volunteer1",
+        "Volunteer_education": "Education Level 1",
+        "Volunteer_phone_number": "555-21",
+        "Volunteer_email": "volunteer1@example.com",
+        "Volunteer_points": 10,
+        "What_jobs_they_enroll_in": [
+          "1",
+          "2"
+        ],
+        "Average_rating": "4.5"
+      },
+      "2": {
+        "Volunteer_name": "Volunteer 2",
+        "Volunteer_password": "volunteer2",
+        "Volunteer_education": "Education Level 2",
+        "Volunteer_phone_number": "555-22",
+        "Volunteer_email": "volunteer2@example.com",
+        "Volunteer_points": 15,
+        "Volunteer_credentials_photo": "",
+        "What_jobs_they_enroll_in": [
+          "1",
+          "3"
+        ],
+        "Average_rating": "2"
+      }
     }
   }
-}
