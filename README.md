@@ -1,5 +1,8 @@
 # CarePoints
-![CarePoints Logo](/public/logo.png){:style="display: block; margin-left: auto; margin-right: auto;"}
+<div align="center">
+  <img src="/public/logo.png" alt="CarePoints Logo" width="300" />
+</div>
+
 ## Overview
 CarePoints is a project developed during the **CTRL+HACK+DEL 2024 hackathon** within a 24-hour timeframe. It was created by **Timmy Yung, Aldrich Mendes, Wendy Shen, and Lindsay Xie** to address the need for accessible home care services while fostering community engagement through volunteerism. 
 
